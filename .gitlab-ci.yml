@@ -1,0 +1,24 @@
+image: node:6
+
+stages:
+  - test
+
+test:
+  stage: test
+  script:
+    - mkdir -p artifacts
+    - npm install
+    - ./node_modules/.bin/eslint -c .eslintrc ./src 2>&1 | tee "$CI_PROJECT_DIR/artifacts/eslint.log"
+  cache:
+    paths:
+    - node_modules
+  artifacts:
+    when: on_failure
+    paths:
+    - artifacts
+  only:
+    - /^feature/.*$/
+    - /^hotfix/.*$/
+    - /^fix/.*$/
+    - develop
+    - master 

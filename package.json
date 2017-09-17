@@ -1,0 +1,63 @@
+{
+  "name": "DriverGuide",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "test": "jest",
+    "lint": "node_modules/eslint/bin/eslint.js ./src",
+    "release:alpha": "ENVFILE=.env.alpha cd android && ./gradlew assembleRelease && cd ..",
+    "prettier": "prettier --single-quote --print-width 80 --no-semi --trailing-comma es5 --write './src/**/*.js'",
+    "debug:alpha": "ENVFILE=.env.alpha cd android && ./gradlew installDebug && cd ..",
+    "clean": "rm -rf $TMPDIR/react-* && watchman watch-del-all && yarn cache clean"
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier --write --single-quote --trailing-comma",
+      "git add"
+    ]
+  },
+  "dependencies": {
+    "moment": "^2.18.1",
+    "react": "16.0.0-alpha.12",
+    "react-native": "0.46.4",
+    "react-native-button": "^1.8.2",
+    "react-native-config": "^0.3.1",
+    "react-native-elements": "^0.13.0",
+    "react-native-extended-stylesheet": "^0.4.0",
+    "react-native-fcm": "^7.3.0",
+    "react-native-keyboard-aware-scroll-view": "^0.2.8",
+    "react-native-router-flux": "^3.38.0",
+    "react-native-scrollable-tab-view": "^0.6.7",
+    "react-native-vector-icons": "^4.0.1",
+    "react-redux": "^5.0.4",
+    "redux": "^3.6.0",
+    "redux-form": "^7.0.1",
+    "redux-saga": "^0.14.6",
+    "validator": "^7.0.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "^7.2.2",
+    "babel-jest": "20.0.3",
+    "babel-plugin-transform-export-extensions": "^6.22.0",
+    "babel-plugin-transform-object-rest-spread": "^6.23.0",
+    "babel-polyfill": "^6.23.0",
+    "babel-preset-react-native": "2.0.0",
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb": "^14.1.0",
+    "eslint-config-prettier": "^1.6.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^4.0.0",
+    "eslint-plugin-react": "^6.10.3",
+    "eslint-plugin-react-native": "^2.3.2",
+    "husky": "^0.13.3",
+    "jest": "20.0.4",
+    "lint-staged": "^3.4.0",
+    "prettier": "^1.2.2",
+    "react-test-renderer": "16.0.0-alpha.12",
+    "redux-devtools-extension": "^2.13.0"
+  },
+  "jest": {
+    "preset": "react-native"
+  }
+}

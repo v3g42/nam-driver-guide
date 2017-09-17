@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "902249510789",
+    "firebase_url": "https://driveguide-1b80a.firebaseio.com",
+    "project_id": "driveguide-1b80a",
+    "storage_bucket": "driveguide-1b80a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:902249510789:android:9b16463705927631",
+        "android_client_info": {
+          "package_name": "com.qudy.test"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "902249510789-0llr3veuo1ag4gm0rr7e89f8kd0pjqvj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDHXIaeIX1zO-uTCesN--bUHPdkfHxa-Sw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
