@@ -24,7 +24,7 @@ const scenes = Actions.create(
       <Scene
         initial
         navigationBarStyle={navStyle}
-        title="Dashboard"
+        title="Google Map"
         titleStyle={titleStyle}
         key={c.DASHBOARD}
         component={Dashboard}

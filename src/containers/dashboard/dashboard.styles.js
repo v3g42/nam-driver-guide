@@ -4,15 +4,28 @@ const styles = EStyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: 'white',
+    justifyContent: 'center',
+    width: '100%',
   },
-  tabTitleNormal: {
-    marginBottom: 2,
-    fontSize: 12,
-    color: '$bottomTabInactiveColor',
+  spiner: {
+    alignSelf: 'center',
   },
-  tabTitleSelected: {
-    color: '$bottomTabActiveColor',
-    fontSize: 13,
+  mapView: {
+    flex: 1,
+  },
+  nextStop: {
+    padding: 10,
+    position: 'absolute',
+    backgroundColor: '#fff',
+    flexDirection: 'row',
+    bottom: 10,
+    width: '80%',
+    left: '10%',
+  },
+  stopIcon: {
+    width: 25,
+    height: 25,
+    marginRight: 10,
   },
 })
 
