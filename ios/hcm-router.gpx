@@ -1,0 +1,750 @@
+<?xml version="1.0"?>
+<gpx version="1.1" creator="Xcode">
+    
+    <wpt lat="10.775170" lon="106.686520">
+      <ele>0</ele>
+      <time>2017-09-18T16:05:40Z</time>
+      <name>pt0</name>
+    </wpt>
+    <wpt lat="10.775010" lon="106.686820">
+      <ele>0</ele>
+      <time>2017-09-18T16:05:43Z</time>
+      <name>pt1</name>
+    </wpt>
+    <wpt lat="10.773130" lon="106.685040">
+      <ele>0</ele>
+      <time>2017-09-18T16:06:09Z</time>
+      <name>pt2</name>
+    </wpt>
+    <wpt lat="10.772900" lon="106.684800">
+      <ele>0</ele>
+      <time>2017-09-18T16:06:12Z</time>
+      <name>pt3</name>
+    </wpt>
+    <wpt lat="10.770390" lon="106.686400">
+      <ele>0</ele>
+      <time>2017-09-18T16:06:42Z</time>
+      <name>pt4</name>
+    </wpt>
+    <wpt lat="10.770070" lon="106.686110">
+      <ele>0</ele>
+      <time>2017-09-18T16:06:46Z</time>
+      <name>pt5</name>
+    </wpt>
+    <wpt lat="10.768420" lon="106.684500">
+      <ele>0</ele>
+      <time>2017-09-18T16:07:09Z</time>
+      <name>pt6</name>
+    </wpt>
+    <wpt lat="10.767300" lon="106.683440">
+      <ele>0</ele>
+      <time>2017-09-18T16:07:24Z</time>
+      <name>pt7</name>
+    </wpt>
+    <wpt lat="10.766080" lon="106.682300">
+      <ele>0</ele>
+      <time>2017-09-18T16:07:41Z</time>
+      <name>pt8</name>
+    </wpt>
+    <wpt lat="10.765720" lon="106.682030">
+      <ele>0</ele>
+      <time>2017-09-18T16:07:45Z</time>
+      <name>pt9</name>
+    </wpt>
+    <wpt lat="10.765560" lon="106.681860">
+      <ele>0</ele>
+      <time>2017-09-18T16:07:47Z</time>
+      <name>pt10</name>
+    </wpt>
+    <wpt lat="10.765610" lon="106.681820">
+      <ele>0</ele>
+      <time>2017-09-18T16:07:48Z</time>
+      <name>pt11</name>
+    </wpt>
+    <wpt lat="10.765640" lon="106.681770">
+      <ele>0</ele>
+      <time>2017-09-18T16:07:49Z</time>
+      <name>pt12</name>
+    </wpt>
+    <wpt lat="10.765670" lon="106.681670">
+      <ele>0</ele>
+      <time>2017-09-18T16:07:50Z</time>
+      <name>pt13</name>
+    </wpt>
+    <wpt lat="10.765630" lon="106.681510">
+      <ele>0</ele>
+      <time>2017-09-18T16:07:51Z</time>
+      <name>pt15</name>
+    </wpt>
+    <wpt lat="10.765560" lon="106.681430">
+      <ele>0</ele>
+      <time>2017-09-18T16:07:52Z</time>
+      <name>pt16</name>
+    </wpt>
+    <wpt lat="10.765470" lon="106.681390">
+      <ele>0</ele>
+      <time>2017-09-18T16:07:53Z</time>
+      <name>pt17</name>
+    </wpt>
+    <wpt lat="10.765360" lon="106.681410">
+      <ele>0</ele>
+      <time>2017-09-18T16:07:54Z</time>
+      <name>pt18</name>
+    </wpt>
+    <wpt lat="10.765320" lon="106.681220">
+      <ele>0</ele>
+      <time>2017-09-18T16:07:56Z</time>
+      <name>pt19</name>
+    </wpt>
+    <wpt lat="10.762150" lon="106.676410">
+      <ele>0</ele>
+      <time>2017-09-18T16:08:53Z</time>
+      <name>pt20</name>
+    </wpt>
+    <wpt lat="10.761070" lon="106.674670">
+      <ele>0</ele>
+      <time>2017-09-18T16:09:14Z</time>
+      <name>pt21</name>
+    </wpt>
+    <wpt lat="10.760690" lon="106.674120">
+      <ele>0</ele>
+      <time>2017-09-18T16:09:20Z</time>
+      <name>pt22</name>
+    </wpt>
+    <wpt lat="10.760180" lon="106.673310">
+      <ele>0</ele>
+      <time>2017-09-18T16:09:30Z</time>
+      <name>pt23</name>
+    </wpt>
+    <wpt lat="10.759160" lon="106.671770">
+      <ele>0</ele>
+      <time>2017-09-18T16:09:48Z</time>
+      <name>pt24</name>
+    </wpt>
+    <wpt lat="10.758890" lon="106.671950">
+      <ele>0</ele>
+      <time>2017-09-18T16:09:51Z</time>
+      <name>pt25</name>
+    </wpt>
+    <wpt lat="10.758620" lon="106.672100">
+      <ele>0</ele>
+      <time>2017-09-18T16:09:54Z</time>
+      <name>pt26</name>
+    </wpt>
+    <wpt lat="10.758660" lon="106.672230">
+      <ele>0</ele>
+      <time>2017-09-18T16:09:55Z</time>
+      <name>pt27</name>
+    </wpt>
+    <wpt lat="10.758660" lon="106.672290">
+      <ele>0</ele>
+      <time>2017-09-18T16:09:56Z</time>
+      <name>pt28</name>
+    </wpt>
+    <wpt lat="10.758600" lon="106.672370">
+      <ele>0</ele>
+      <time>2017-09-18T16:09:57Z</time>
+      <name>pt29</name>
+    </wpt>
+    <wpt lat="10.758460" lon="106.672430">
+      <ele>0</ele>
+      <time>2017-09-18T16:09:59Z</time>
+      <name>pt30</name>
+    </wpt>
+    <wpt lat="10.757750" lon="106.672580">
+      <ele>0</ele>
+      <time>2017-09-18T16:10:06Z</time>
+      <name>pt31</name>
+    </wpt>
+    <wpt lat="10.757640" lon="106.672580">
+      <ele>0</ele>
+      <time>2017-09-18T16:10:07Z</time>
+      <name>pt32</name>
+    </wpt>
+    <wpt lat="10.757610" lon="106.672550">
+      <ele>0</ele>
+      <time>2017-09-18T16:10:08Z</time>
+      <name>pt33</name>
+    </wpt>
+    <wpt lat="10.757570" lon="106.672480">
+      <ele>0</ele>
+      <time>2017-09-18T16:10:09Z</time>
+      <name>pt34</name>
+    </wpt>
+    <wpt lat="10.757520" lon="106.672300">
+      <ele>0</ele>
+      <time>2017-09-18T16:10:10Z</time>
+      <name>pt35</name>
+    </wpt>
+    <wpt lat="10.757260" lon="106.672370">
+      <ele>0</ele>
+      <time>2017-09-18T16:10:13Z</time>
+      <name>pt36</name>
+    </wpt>
+    <wpt lat="10.756860" lon="106.670540">
+      <ele>0</ele>
+      <time>2017-09-18T16:10:31Z</time>
+      <name>pt37</name>
+    </wpt>
+    <wpt lat="10.756690" lon="106.669580">
+      <ele>0</ele>
+      <time>2017-09-18T16:10:41Z</time>
+      <name>pt38</name>
+    </wpt>
+    <wpt lat="10.758020" lon="106.669340">
+      <ele>0</ele>
+      <time>2017-09-18T16:10:54Z</time>
+      <name>pt39</name>
+    </wpt>
+    <wpt lat="10.759730" lon="106.668950">
+      <ele>0</ele>
+      <time>2017-09-18T16:11:12Z</time>
+      <name>pt40</name>
+    </wpt>
+    <wpt lat="10.759800" lon="106.669040">
+      <ele>0</ele>
+      <time>2017-09-18T16:11:13Z</time>
+      <name>pt41</name>
+    </wpt>
+    <wpt lat="10.759880" lon="106.669050">
+      <ele>0</ele>
+      <time>2017-09-18T16:11:14Z</time>
+      <name>pt42</name>
+    </wpt>
+    <wpt lat="10.759960" lon="106.669010">
+      <ele>0</ele>
+      <time>2017-09-18T16:11:15Z</time>
+      <name>pt43</name>
+    </wpt>
+    <wpt lat="10.760010" lon="106.668900">
+      <ele>0</ele>
+      <time>2017-09-18T16:11:16Z</time>
+      <name>pt44</name>
+    </wpt>
+    <wpt lat="10.760000" lon="106.668870">
+      <ele>0</ele>
+      <time>2017-09-18T16:11:17Z</time>
+      <name>pt45</name>
+    </wpt>
+    <wpt lat="10.762620" lon="106.668250">
+      <ele>0</ele>
+      <time>2017-09-18T16:11:43Z</time>
+      <name>pt46</name>
+    </wpt>
+    <wpt lat="10.763770" lon="106.668010">
+      <ele>0</ele>
+      <time>2017-09-18T16:11:55Z</time>
+      <name>pt47</name>
+    </wpt>
+    <wpt lat="10.767600" lon="106.667130">
+      <ele>0</ele>
+      <time>2017-09-18T16:12:34Z</time>
+      <name>pt48</name>
+    </wpt>
+    <wpt lat="10.767760" lon="106.667070">
+      <ele>0</ele>
+      <time>2017-09-18T16:12:36Z</time>
+      <name>pt49</name>
+    </wpt>
+    <wpt lat="10.768030" lon="106.666930">
+      <ele>0</ele>
+      <time>2017-09-18T16:12:39Z</time>
+      <name>pt50</name>
+    </wpt>
+    <wpt lat="10.769380" lon="106.666350">
+      <ele>0</ele>
+      <time>2017-09-18T16:12:54Z</time>
+      <name>pt51</name>
+    </wpt>
+    <wpt lat="10.770080" lon="106.666100">
+      <ele>0</ele>
+      <time>2017-09-18T16:13:01Z</time>
+      <name>pt52</name>
+    </wpt>
+    <wpt lat="10.771810" lon="106.665370">
+      <ele>0</ele>
+      <time>2017-09-18T16:13:20Z</time>
+      <name>pt53</name>
+    </wpt>
+    <wpt lat="10.772490" lon="106.665100">
+      <ele>0</ele>
+      <time>2017-09-18T16:13:27Z</time>
+      <name>pt54</name>
+    </wpt>
+    <wpt lat="10.773370" lon="106.664790">
+      <ele>0</ele>
+      <time>2017-09-18T16:13:36Z</time>
+      <name>pt55</name>
+    </wpt>
+    <wpt lat="10.774190" lon="106.664460">
+      <ele>0</ele>
+      <time>2017-09-18T16:13:45Z</time>
+      <name>pt56</name>
+    </wpt>
+    <wpt lat="10.774580" lon="106.664350">
+      <ele>0</ele>
+      <time>2017-09-18T16:13:49Z</time>
+      <name>pt57</name>
+    </wpt>
+    <wpt lat="10.776270" lon="106.663680">
+      <ele>0</ele>
+      <time>2017-09-18T16:14:07Z</time>
+      <name>pt58</name>
+    </wpt>
+    <wpt lat="10.776340" lon="106.663680">
+      <ele>0</ele>
+      <time>2017-09-18T16:14:08Z</time>
+      <name>pt59</name>
+    </wpt>
+    <wpt lat="10.776480" lon="106.663630">
+      <ele>0</ele>
+      <time>2017-09-18T16:14:10Z</time>
+      <name>pt60</name>
+    </wpt>
+    <wpt lat="10.776360" lon="106.663490">
+      <ele>0</ele>
+      <time>2017-09-18T16:14:11Z</time>
+      <name>pt61</name>
+    </wpt>
+    <wpt lat="10.774790" lon="106.662300">
+      <ele>0</ele>
+      <time>2017-09-18T16:14:31Z</time>
+      <name>pt62</name>
+    </wpt>
+    <wpt lat="10.773590" lon="106.661430">
+      <ele>0</ele>
+      <time>2017-09-18T16:14:46Z</time>
+      <name>pt63</name>
+    </wpt>
+    <wpt lat="10.773160" lon="106.661070">
+      <ele>0</ele>
+      <time>2017-09-18T16:14:51Z</time>
+      <name>pt64</name>
+    </wpt>
+    <wpt lat="10.772610" lon="106.660650">
+      <ele>0</ele>
+      <time>2017-09-18T16:14:58Z</time>
+      <name>pt65</name>
+    </wpt>
+    <wpt lat="10.772270" lon="106.660330">
+      <ele>0</ele>
+      <time>2017-09-18T16:15:03Z</time>
+      <name>pt66</name>
+    </wpt>
+    <wpt lat="10.772090" lon="106.660130">
+      <ele>0</ele>
+      <time>2017-09-18T16:15:05Z</time>
+      <name>pt67</name>
+    </wpt>
+    <wpt lat="10.771980" lon="106.659970">
+      <ele>0</ele>
+      <time>2017-09-18T16:15:07Z</time>
+      <name>pt68</name>
+    </wpt>
+    <wpt lat="10.770410" lon="106.658220">
+      <ele>0</ele>
+      <time>2017-09-18T16:15:31Z</time>
+      <name>pt69</name>
+    </wpt>
+    <wpt lat="10.770390" lon="106.658150">
+      <ele>0</ele>
+      <time>2017-09-18T16:15:32Z</time>
+      <name>pt70</name>
+    </wpt>
+    <wpt lat="10.770390" lon="106.657770">
+      <ele>0</ele>
+      <time>2017-09-18T16:15:35Z</time>
+      <name>pt71</name>
+    </wpt>
+    <wpt lat="10.770410" lon="106.657590">
+      <ele>0</ele>
+      <time>2017-09-18T16:15:37Z</time>
+      <name>pt72</name>
+    </wpt>
+    <wpt lat="10.770530" lon="106.656930">
+      <ele>0</ele>
+      <time>2017-09-18T16:15:44Z</time>
+      <name>pt73</name>
+    </wpt>
+    <wpt lat="10.770640" lon="106.656160">
+      <ele>0</ele>
+      <time>2017-09-18T16:15:51Z</time>
+      <name>pt74</name>
+    </wpt>
+    <wpt lat="10.770760" lon="106.655520">
+      <ele>0</ele>
+      <time>2017-09-18T16:15:58Z</time>
+      <name>pt75</name>
+    </wpt>
+    <wpt lat="10.770910" lon="106.654470">
+      <ele>0</ele>
+      <time>2017-09-18T16:16:08Z</time>
+      <name>pt76</name>
+    </wpt>
+    <wpt lat="10.771160" lon="106.652950">
+      <ele>0</ele>
+      <time>2017-09-18T16:16:23Z</time>
+      <name>pt77</name>
+    </wpt>
+    <wpt lat="10.771170" lon="106.652720">
+      <ele>0</ele>
+      <time>2017-09-18T16:16:25Z</time>
+      <name>pt78</name>
+    </wpt>
+    <wpt lat="10.769640" lon="106.652540">
+      <ele>0</ele>
+      <time>2017-09-18T16:16:41Z</time>
+      <name>pt79</name>
+    </wpt>
+    <wpt lat="10.769570" lon="106.652500">
+      <ele>0</ele>
+      <time>2017-09-18T16:16:42Z</time>
+      <name>pt80</name>
+    </wpt>
+    <wpt lat="10.769190" lon="106.652420">
+      <ele>0</ele>
+      <time>2017-09-18T16:16:46Z</time>
+      <name>pt81</name>
+    </wpt>
+    <wpt lat="10.769060" lon="106.652340">
+      <ele>0</ele>
+      <time>2017-09-18T16:16:47Z</time>
+      <name>pt82</name>
+    </wpt>
+    <wpt lat="10.769060" lon="106.652220">
+      <ele>0</ele>
+      <time>2017-09-18T16:16:48Z</time>
+      <name>pt83</name>
+    </wpt>
+    <wpt lat="10.769160" lon="106.652000">
+      <ele>0</ele>
+      <time>2017-09-18T16:16:49Z</time>
+      <name>pt84</name>
+    </wpt>
+    <wpt lat="10.769150" lon="106.651950">
+      <ele>0</ele>
+      <time>2017-09-18T16:16:50Z</time>
+      <name>pt85</name>
+    </wpt>
+    <wpt lat="10.769070" lon="106.651850">
+      <ele>0</ele>
+      <time>2017-09-18T16:16:51Z</time>
+      <name>pt86</name>
+    </wpt>
+    <wpt lat="10.769010" lon="106.651830">
+      <ele>0</ele>
+      <time>2017-09-18T16:16:53Z</time>
+      <name>pt87</name>
+    </wpt>
+    <wpt lat="10.768920" lon="106.651840">
+      <ele>0</ele>
+      <time>2017-09-18T16:16:54Z</time>
+      <name>pt88</name>
+    </wpt>
+    <wpt lat="10.768450" lon="106.651240">
+      <ele>0</ele>
+      <time>2017-09-18T16:17:01Z</time>
+      <name>pt89</name>
+    </wpt>
+    <wpt lat="10.767460" lon="106.649710">
+      <ele>0</ele>
+      <time>2017-09-18T16:17:20Z</time>
+      <name>pt90</name>
+    </wpt>
+    <wpt lat="10.765740" lon="106.647130">
+      <ele>0</ele>
+      <time>2017-09-18T16:17:50Z</time>
+      <name>pt91</name>
+    </wpt>
+    <wpt lat="10.765350" lon="106.646510">
+      <ele>0</ele>
+      <time>2017-09-18T16:17:57Z</time>
+      <name>pt92</name>
+    </wpt>
+    <wpt lat="10.765610" lon="106.645880">
+      <ele>0</ele>
+      <time>2017-09-18T16:18:04Z</time>
+      <name>pt93</name>
+    </wpt>
+    <wpt lat="10.766110" lon="106.644420">
+      <ele>0</ele>
+      <time>2017-09-18T16:18:19Z</time>
+      <name>pt94</name>
+    </wpt>
+    <wpt lat="10.766400" lon="106.643630">
+      <ele>0</ele>
+      <time>2017-09-18T16:18:28Z</time>
+      <name>pt95</name>
+    </wpt>
+    <wpt lat="10.766490" lon="106.643250">
+      <ele>0</ele>
+      <time>2017-09-18T16:18:31Z</time>
+      <name>pt96</name>
+    </wpt>
+    <wpt lat="10.766560" lon="106.643130">
+      <ele>0</ele>
+      <time>2017-09-18T16:18:33Z</time>
+      <name>pt97</name>
+    </wpt>
+    <wpt lat="10.766810" lon="106.642530">
+      <ele>0</ele>
+      <time>2017-09-18T16:18:39Z</time>
+      <name>pt98</name>
+    </wpt>
+    <wpt lat="10.766910" lon="106.642500">
+      <ele>0</ele>
+      <time>2017-09-18T16:18:40Z</time>
+      <name>pt99</name>
+    </wpt>
+    <wpt lat="10.766980" lon="106.642400">
+      <ele>0</ele>
+      <time>2017-09-18T16:18:41Z</time>
+      <name>pt100</name>
+    </wpt>
+    <wpt lat="10.766980" lon="106.642320">
+      <ele>0</ele>
+      <time>2017-09-18T16:18:42Z</time>
+      <name>pt101</name>
+    </wpt>
+    <wpt lat="10.766950" lon="106.642250">
+      <ele>0</ele>
+      <time>2017-09-18T16:18:43Z</time>
+      <name>pt102</name>
+    </wpt>
+    <wpt lat="10.766860" lon="106.642180">
+      <ele>0</ele>
+      <time>2017-09-18T16:18:44Z</time>
+      <name>pt103</name>
+    </wpt>
+    <wpt lat="10.766760" lon="106.642180">
+      <ele>0</ele>
+      <time>2017-09-18T16:18:45Z</time>
+      <name>pt104</name>
+    </wpt>
+    <wpt lat="10.766690" lon="106.642220">
+      <ele>0</ele>
+      <time>2017-09-18T16:18:46Z</time>
+      <name>pt105</name>
+    </wpt>
+    <wpt lat="10.766190" lon="106.642220">
+      <ele>0</ele>
+      <time>2017-09-18T16:18:51Z</time>
+      <name>pt106</name>
+    </wpt>
+    <wpt lat="10.766060" lon="106.640690">
+      <ele>0</ele>
+      <time>2017-09-18T16:19:06Z</time>
+      <name>pt107</name>
+    </wpt>
+    <wpt lat="10.766010" lon="106.639710">
+      <ele>0</ele>
+      <time>2017-09-18T16:19:16Z</time>
+      <name>pt108</name>
+    </wpt>
+    <wpt lat="10.766700" lon="106.639700">
+      <ele>0</ele>
+      <time>2017-09-18T16:19:23Z</time>
+      <name>pt109</name>
+    </wpt>
+    <wpt lat="10.767260" lon="106.639650">
+      <ele>0</ele>
+      <time>2017-09-18T16:19:28Z</time>
+      <name>pt110</name>
+    </wpt>
+    <wpt lat="10.767570" lon="106.639510">
+      <ele>0</ele>
+      <time>2017-09-18T16:19:32Z</time>
+      <name>pt111</name>
+    </wpt>
+    <wpt lat="10.767750" lon="106.639360">
+      <ele>0</ele>
+      <time>2017-09-18T16:19:34Z</time>
+      <name>pt112</name>
+    </wpt>
+    <wpt lat="10.767920" lon="106.639140">
+      <ele>0</ele>
+      <time>2017-09-18T16:19:37Z</time>
+      <name>pt113</name>
+    </wpt>
+    <wpt lat="10.768020" lon="106.638960">
+      <ele>0</ele>
+      <time>2017-09-18T16:19:39Z</time>
+      <name>pt114</name>
+    </wpt>
+    <wpt lat="10.768160" lon="106.638640">
+      <ele>0</ele>
+      <time>2017-09-18T16:19:42Z</time>
+      <name>pt115</name>
+    </wpt>
+    <wpt lat="10.768290" lon="106.638110">
+      <ele>0</ele>
+      <time>2017-09-18T16:19:48Z</time>
+      <name>pt116</name>
+    </wpt>
+    <wpt lat="10.768340" lon="106.637660">
+      <ele>0</ele>
+      <time>2017-09-18T16:19:52Z</time>
+      <name>pt117</name>
+    </wpt>
+    <wpt lat="10.768340" lon="106.637400">
+      <ele>0</ele>
+      <time>2017-09-18T16:19:55Z</time>
+      <name>pt118</name>
+    </wpt>
+    <wpt lat="10.768770" lon="106.637440">
+      <ele>0</ele>
+      <time>2017-09-18T16:19:59Z</time>
+      <name>pt119</name>
+    </wpt>
+    <wpt lat="10.769040" lon="106.637500">
+      <ele>0</ele>
+      <time>2017-09-18T16:20:02Z</time>
+      <name>pt120</name>
+    </wpt>
+    <wpt lat="10.769300" lon="106.636870">
+      <ele>0</ele>
+      <time>2017-09-18T16:20:08Z</time>
+      <name>pt121</name>
+    </wpt>
+    <wpt lat="10.769470" lon="106.636350">
+      <ele>0</ele>
+      <time>2017-09-18T16:20:14Z</time>
+      <name>pt122</name>
+    </wpt>
+    <wpt lat="10.769540" lon="106.636030">
+      <ele>0</ele>
+      <time>2017-09-18T16:20:17Z</time>
+      <name>pt123</name>
+    </wpt>
+    <wpt lat="10.769560" lon="106.635540">
+      <ele>0</ele>
+      <time>2017-09-18T16:20:22Z</time>
+      <name>pt124</name>
+    </wpt>
+    <wpt lat="10.769530" lon="106.635000">
+      <ele>0</ele>
+      <time>2017-09-18T16:20:27Z</time>
+      <name>pt125</name>
+    </wpt>
+    <wpt lat="10.769470" lon="106.634560">
+      <ele>0</ele>
+      <time>2017-09-18T16:20:32Z</time>
+      <name>pt126</name>
+    </wpt>
+    <wpt lat="10.769470" lon="106.634400">
+      <ele>0</ele>
+      <time>2017-09-18T16:20:33Z</time>
+      <name>pt127</name>
+    </wpt>
+    <wpt lat="10.769520" lon="106.634120">
+      <ele>0</ele>
+      <time>2017-09-18T16:20:36Z</time>
+      <name>pt128</name>
+    </wpt>
+    <wpt lat="10.769790" lon="106.633400">
+      <ele>0</ele>
+      <time>2017-09-18T16:20:43Z</time>
+      <name>pt129</name>
+    </wpt>
+    <wpt lat="10.770240" lon="106.631830">
+      <ele>0</ele>
+      <time>2017-09-18T16:21:00Z</time>
+      <name>pt130</name>
+    </wpt>
+    <wpt lat="10.770450" lon="106.631260">
+      <ele>0</ele>
+      <time>2017-09-18T16:21:06Z</time>
+      <name>pt131</name>
+    </wpt>
+    <wpt lat="10.770770" lon="106.630500">
+      <ele>0</ele>
+      <time>2017-09-18T16:21:14Z</time>
+      <name>pt132</name>
+    </wpt>
+    <wpt lat="10.771110" lon="106.629490">
+      <ele>0</ele>
+      <time>2017-09-18T16:21:24Z</time>
+      <name>pt133</name>
+    </wpt>
+    <wpt lat="10.771910" lon="106.626960">
+      <ele>0</ele>
+      <time>2017-09-18T16:21:50Z</time>
+      <name>pt134</name>
+    </wpt>
+    <wpt lat="10.770850" lon="106.626920">
+      <ele>0</ele>
+      <time>2017-09-18T16:22:01Z</time>
+      <name>pt135</name>
+    </wpt>
+    <wpt lat="10.770400" lon="106.626930">
+      <ele>0</ele>
+      <time>2017-09-18T16:22:05Z</time>
+      <name>pt136</name>
+    </wpt>
+    <wpt lat="10.769150" lon="106.626910">
+      <ele>0</ele>
+      <time>2017-09-18T16:22:18Z</time>
+      <name>pt137</name>
+    </wpt>
+    <wpt lat="10.768610" lon="106.626930">
+      <ele>0</ele>
+      <time>2017-09-18T16:22:23Z</time>
+      <name>pt138</name>
+    </wpt>
+    <wpt lat="10.765450" lon="106.626930">
+      <ele>0</ele>
+      <time>2017-09-18T16:22:55Z</time>
+      <name>pt139</name>
+    </wpt>
+    <wpt lat="10.762640" lon="106.626920">
+      <ele>0</ele>
+      <time>2017-09-18T16:23:23Z</time>
+      <name>pt140</name>
+    </wpt>
+    <wpt lat="10.762120" lon="106.626900">
+      <ele>0</ele>
+      <time>2017-09-18T16:23:28Z</time>
+      <name>pt141</name>
+    </wpt>
+    <wpt lat="10.762220" lon="106.625710">
+      <ele>0</ele>
+      <time>2017-09-18T16:23:40Z</time>
+      <name>pt142</name>
+    </wpt>
+    <wpt lat="10.762310" lon="106.625080">
+      <ele>0</ele>
+      <time>2017-09-18T16:23:46Z</time>
+      <name>pt143</name>
+    </wpt>
+    <wpt lat="10.762450" lon="106.624370">
+      <ele>0</ele>
+      <time>2017-09-18T16:23:53Z</time>
+      <name>pt144</name>
+    </wpt>
+    <wpt lat="10.762470" lon="106.624180">
+      <ele>0</ele>
+      <time>2017-09-18T16:23:55Z</time>
+      <name>pt145</name>
+    </wpt>
+    <wpt lat="10.762460" lon="106.624070">
+      <ele>0</ele>
+      <time>2017-09-18T16:23:56Z</time>
+      <name>pt146</name>
+    </wpt>
+    <wpt lat="10.761470" lon="106.624270">
+      <ele>0</ele>
+      <time>2017-09-18T16:24:07Z</time>
+      <name>pt147</name>
+    </wpt>
+    <wpt lat="10.760160" lon="106.624610">
+      <ele>0</ele>
+      <time>2017-09-18T16:24:20Z</time>
+      <name>pt148</name>
+    </wpt>
+    <wpt lat="10.760210" lon="106.624280">
+      <ele>0</ele>
+      <time>2017-09-18T16:24:23Z</time>
+      <name>pt149</name>
+    </wpt>
+
+</gpx>

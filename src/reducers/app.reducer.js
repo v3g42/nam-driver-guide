@@ -1,8 +1,7 @@
 import * as t from '../actionTypes'
 
 const initialState = {
-  news: [],
-  people: {},
+  currentLocation: null,
 }
 
 export default function auth(state = initialState, action) {

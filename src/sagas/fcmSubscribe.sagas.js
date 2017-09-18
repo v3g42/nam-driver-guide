@@ -5,19 +5,14 @@ import actions from '../actions'
 import * as t from '../actionTypes'
 
 export const FCMNotificationListener = FCM.on(FCMEvent.Notification, notif => {
-  console.log(notif);
-  // there are two parts of notif. notif.notification contains the notification payload, notif.data contains data payload
+  if (notif._notificationType === 'will_present_notification') return // eslint-disable-line
   if (notif.opened_from_tray) {
     store.dispatch(
-      actions[t.FCM_NOTIFICATION_FROM_TRAY]({
-        notificationPayload: notif.fcm.body,
-      })
+      actions[t.FCM_NOTIFICATION_FROM_TRAY](JSON.parse(notif.nextLocation))
     )
   } else {
     store.dispatch(
-      actions[t.RECEIVED_FCM_NOTIFICATION]({
-        notificationPayload: notif.fcm.body,
-      })
+      actions[t.RECEIVED_FCM_NOTIFICATION](JSON.parse(notif.nextLocation))
     )
   }
 })
@@ -29,14 +24,13 @@ export const FCMRefreshTokenListener = FCM.on(FCMEvent.RefreshToken, token => {
 
 export function* fcmSubscribeFlow() {
   try {
-    console.log('trye');
     FCM.requestPermissions() // for iOS
     const token = yield call(FCM.getFCMToken)
     if (token) {
       yield put(actions[t.RECEIVED_FCM_TOKEN]({ fcmToken: token }))
     }
   } catch (error) {
-    console.log(error);
+    console.log(error)
     yield put(actions[t.FCM_SUBSCRIBE_FAILED](error.message))
   }
 }

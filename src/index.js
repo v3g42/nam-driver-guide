@@ -7,11 +7,11 @@ import * as t from './actionTypes'
 import Router from './configs/router.config'
 
 import './configs/styles.config'
+import './configs/location.config'
 
 class App extends Component {
-
   componentDidMount() {
-      store.dispatch(actions[t.INIT_APP]());
+    store.dispatch(actions[t.INIT_APP]())
   }
   render() {
     return (
