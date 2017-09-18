@@ -11,7 +11,7 @@ export function* fetchDirectionFlow() {
       state => state.location.currentLocation
     )
     const currentLocation = `${sLat},${sLong}`
-    const nextStop = yield select(state => state.delivery.nextStop)
+    const nextStop = yield select(state => state.delivery.nextStop.latlong)
 
     const respJson = yield call(apiCall, api.fetchDirection, {
       startLoc: currentLocation,
