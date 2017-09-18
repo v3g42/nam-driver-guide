@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { View, Image, Text, ActivityIndicator, ListView } from 'react-native'
 import Button from 'react-native-button'
 import MapView from 'react-native-maps'
-import * as Animatable from 'react-native-animatable'
+import * as Animatable from 'react-native-animatable' // eslint-disable-line
 import Icon from 'react-native-vector-icons/Ionicons'
 import { bindActionCreators } from 'redux'
 import actions from '../../actions'
