@@ -1,15 +1,16 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { View, Text } from 'react-native'
+import Button from 'react-native-button'
+import { Actions as scenes } from 'react-native-router-flux'
 import Icon from 'react-native-vector-icons/Ionicons'
 import { bindActionCreators } from 'redux'
 import actions from '../../../actions'
 import styles from './waitingForNextDelivery.style'
-// eslint-disable-next-line
+
 class WaitingForNextDelivery extends React.Component {
-  // eslint-disable-next-line
-  constructor(props) {
-    super(props)
+  closeModal = () => {
+    scenes.pop()
   }
 
   render() {
@@ -21,6 +22,9 @@ class WaitingForNextDelivery extends React.Component {
             Done, you've reached the current delivery. Please take a rest while
             wait for next delivery!
           </Text>
+          <Button style={styles.closeButton} onPress={this.closeModal}>
+            Close
+          </Button>
         </View>
       </View>
     )

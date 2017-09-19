@@ -15,7 +15,7 @@ const styles = EStyleSheet.create({
   wrapper: {
     justifyContent: 'center',
     alignItems: 'center',
-    width: '80%',
+    width: '90%',
     backgroundColor: 'white',
     borderRadius: 10,
     shadowOpacity: 0.5,
@@ -24,6 +24,10 @@ const styles = EStyleSheet.create({
     textAlign: 'center',
     marginHorizontal: 10,
     marginTop: -40,
+    marginBottom: 20,
+  },
+  closeButton: {
+    padding: 8,
     marginBottom: 20,
   },
 })
