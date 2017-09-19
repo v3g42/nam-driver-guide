@@ -140,7 +140,7 @@ class Dashboard extends React.Component {
             style={styles.stopIcon}
             source={require('../../assets/deliveryPlace.png')}
           />
-          <Text>
+          <Text style={styles.nextStopText}>
             {`${currentStop.address}  ${toCurrentStop.endAddress
               ? `-- ${toCurrentStop.endAddress}`
               : ''}`}

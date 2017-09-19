@@ -25,6 +25,9 @@ const styles = EStyleSheet.create({
     width: '90%',
     left: '5%',
   },
+  nextStopText: {
+    maxWidth: '80%',
+  },
   stopIcon: {
     width: 25,
     height: 25,
@@ -40,13 +43,12 @@ const styles = EStyleSheet.create({
     position: 'absolute',
     alignItems: 'center',
     justifyContent: 'center',
-    bottom: 80,
+    bottom: 90,
     right: 20,
   },
   currentPosButtonIcon: {
     backgroundColor: 'transparent',
   },
-
   textDoneList: {
     fontSize: 16,
     alignSelf: 'center',
@@ -57,7 +59,6 @@ const styles = EStyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
   },
-
   visitedDoneRowText: {
     marginLeft: 15,
   },
@@ -66,7 +67,7 @@ const styles = EStyleSheet.create({
     maxHeight: '60%',
     left: '5%',
     shadowOpacity: 0.5,
-    bottom: 60,
+    bottom: 85,
     position: 'absolute',
   },
 })

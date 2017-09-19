@@ -3,7 +3,7 @@ import * as t from '../actionTypes'
 const initialState = {
   currentStop: {
     latlong: '10.757189, 106.672099',
-    address: 'An Dong Market',
+    address: 'An Dong Market and Plaza',
   },
   toCurrentStop: {
     distance: null,
