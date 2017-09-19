@@ -26,7 +26,7 @@ const styles = EStyleSheet.create({
     left: '5%',
   },
   nextStopText: {
-    maxWidth: '80%',
+    maxWidth: '75%',
   },
   stopIcon: {
     width: 25,

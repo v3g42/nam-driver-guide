@@ -1,8 +1,8 @@
 import { put, call, takeLatest } from 'redux-saga/effects'
 import FCM, { FCMEvent } from 'react-native-fcm'
-import store from '../configs/store.config'
-import actions from '../actions'
-import * as t from '../actionTypes'
+import store from '../../configs/store.config'
+import actions from '../../actions'
+import * as t from '../../actionTypes'
 
 export const FCMNotificationListener = FCM.on(FCMEvent.Notification, notif => {
   if (notif._notificationType === 'will_present_notification') return // eslint-disable-line

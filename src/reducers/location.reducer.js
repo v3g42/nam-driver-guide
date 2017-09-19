@@ -21,6 +21,11 @@ export default function auth(state = initialState, action) {
         ...state,
         router: action.payload.coords,
       }
+    case t.REACHED_TO_CURRENT_DELIVERY:
+      return {
+        ...state,
+        router: null,
+      }
     default:
       return state
   }

@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { View, Image, Text, ActivityIndicator, ListView } from 'react-native'
 import Button from 'react-native-button'
 import MapView from 'react-native-maps'
-import * as Animatable from 'react-native-animatable' // eslint-disable-line
+import * as Animatable from 'react-native-animatable'
 import Icon from 'react-native-vector-icons/Ionicons'
 import { bindActionCreators } from 'redux'
 import actions from '../../actions'
@@ -86,7 +86,6 @@ class Dashboard extends React.Component {
     return (
       <View style={styles.container}>
         <MapView
-          onRegionChange={this.hideVisitedDoneList}
           onPress={this.hideVisitedDoneList}
           region={this.state.region}
           style={styles.mapView}
@@ -140,11 +139,13 @@ class Dashboard extends React.Component {
             style={styles.stopIcon}
             source={require('../../assets/deliveryPlace.png')}
           />
-          <Text style={styles.nextStopText}>
-            {`${currentStop.address}  ${toCurrentStop.endAddress
-              ? `-- ${toCurrentStop.endAddress}`
-              : ''}`}
-          </Text>
+          {currentStop &&
+            <Text style={styles.nextStopText}>
+              {`${currentStop.address}  ${toCurrentStop.endAddress
+                ? `-- ${toCurrentStop.endAddress}`
+                : ''}`}
+            </Text>}
+          {!currentStop && <Text style={styles.nextStopText}>No delivery</Text>}
         </Button>
       </View>
     )
