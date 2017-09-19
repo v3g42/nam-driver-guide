@@ -11,12 +11,21 @@ export function* fetchDirectionFlow() {
       state => state.location.currentLocation
     )
     const currentLocation = `${sLat},${sLong}`
-    const nextStop = yield select(state => state.delivery.nextStop.latlong)
+    const currentStop = yield select(
+      state => state.delivery.currentStop.latlong
+    )
 
     const respJson = yield call(apiCall, api.fetchDirection, {
       startLoc: currentLocation,
-      destinationLoc: nextStop,
+      destinationLoc: currentStop,
     })
+    const {
+      distance,
+      duration,
+      end_address: endAddress,
+      start_address: startAddress,
+    } = respJson.routes[0].legs[0]
+
     const points = Polyline.decode(respJson.routes[0].overview_polyline.points)
     const coords = points.map(point => {
       return {
@@ -24,7 +33,15 @@ export function* fetchDirectionFlow() {
         longitude: point[1],
       }
     })
-    yield put(actions[t.LOAD_DIRECTION_SUCCESS](coords))
+    yield put(
+      actions[t.LOAD_DIRECTION_SUCCESS]({
+        coords,
+        distance,
+        duration,
+        startAddress,
+        endAddress,
+      })
+    )
   } catch (error) {
     yield put(actions[t.LOAD_DIRECTION_FAILED](error.message))
   }

@@ -19,7 +19,7 @@ export default function auth(state = initialState, action) {
     case t.LOAD_DIRECTION_SUCCESS:
       return {
         ...state,
-        router: action.payload,
+        router: action.payload.coords,
       }
     default:
       return state

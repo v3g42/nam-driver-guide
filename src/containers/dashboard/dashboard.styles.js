@@ -12,8 +12,10 @@ const styles = EStyleSheet.create({
   },
   mapView: {
     flex: 1,
+    zIndex: 500,
   },
   nextStop: {
+    zIndex: 501,
     shadowOpacity: 0.5,
     padding: 10,
     position: 'absolute',
@@ -29,6 +31,7 @@ const styles = EStyleSheet.create({
     marginRight: 10,
   },
   currentPosButton: {
+    zIndex: 501,
     shadowOpacity: 0.5,
     width: 50,
     height: 50,
@@ -44,17 +47,27 @@ const styles = EStyleSheet.create({
     backgroundColor: 'transparent',
   },
 
+  textDoneList: {
+    fontSize: 16,
+    alignSelf: 'center',
+    marginTop: 10,
+  },
   visitedDoneRow: {
-    paddingHorizontal: 10,
-    paddingVertical: 15,
+    paddingHorizontal: 13,
     flexDirection: 'row',
     alignItems: 'center',
   },
+
   visitedDoneRowText: {
-    marginLeft: 10,
+    marginLeft: 15,
   },
   hiddenVisitedDoneList: {
-    marginBottom: 80,
+    width: '90%',
+    maxHeight: '60%',
+    left: '5%',
+    shadowOpacity: 0.5,
+    bottom: 60,
+    position: 'absolute',
   },
 })
 
