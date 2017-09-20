@@ -1,5 +1,7 @@
 import { put, call, takeLatest } from 'redux-saga/effects'
 import FCM, { FCMEvent } from 'react-native-fcm'
+import { Clipboard } from 'react-native'
+import Toast from '@remobile/react-native-toast'
 import store from '../../configs/store.config'
 import actions from '../../actions'
 import * as t from '../../actionTypes'
@@ -27,7 +29,9 @@ export function* fcmSubscribeFlow() {
     FCM.requestPermissions() // for iOS
     const token = yield call(FCM.getFCMToken)
     if (token) {
-      yield put(actions[t.RECEIVED_FCM_TOKEN]({ fcmToken: token }))
+      console.log('fcmToken', token)
+      Clipboard.setString(this.props.token)
+      Toast.showLongTop('FCM token copied to clipboard')
     }
   } catch (error) {
     console.log(error)

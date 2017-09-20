@@ -6,15 +6,15 @@ const initialState = {
     done: false,
     pickUp: {
       done: false,
-      latitude: 10.774104,
-      longitude: 106.685982,
-      address: '63 Nguyen Dinh Chieu, Phuong 12, Quan Phu Nhuan',
+      latitude: 10.86527,
+      longitude: 106.759815,
+      address: 'Nga tu Binh Duong',
     },
     dropOff: {
       done: false,
-      latitude: 10.773461,
-      longitude: 106.685365,
-      address: '263 Công Ty Tnhh Mtv Tin Học Khánh Thảo',
+      latitude: 10.869105,
+      longitude: 106.763212,
+      address: 'Linh Trung Thu Duc',
     },
   },
   doneList: [

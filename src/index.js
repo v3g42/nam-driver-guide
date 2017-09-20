@@ -15,12 +15,10 @@ class App extends Component {
     // should load it from RN config
     const enable_mock = true
     // location mock
-    const state = store.getState()
-    if (state.delivery.delivery && !state.delivery.delivery.done) {
+    if (enable_mock)
       setInterval(() => {
         store.dispatch(actions[t.LOCATION_MOCK]())
       }, 1000)
-    }
   }
   render() {
     return (
