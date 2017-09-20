@@ -5,18 +5,18 @@ import { Image, View, Text, StatusBar, Platform } from 'react-native'
 import * as c from '../constants'
 // scene containers
 import Dashboard from '../containers/dashboard/Dashboard.container'
-import WaitingForNextDelivery from '../containers/dashboard/modal/WaitingForNextDelivery.modal'
+import WaitingForNextDelivery from '../containers/dashboard/waitingForNextDeliveryModal/WaitingForNextDelivery.modal'
+import NewDeliveryCome from '../containers/dashboard/newDeliveryComeModal/NewDeliveryCome.modal'
 
 const titleStyle = {
-  color: 'white',
+  color: '#000',
 }
 
 const scenes = Actions.create(
   <Scene key="modal" component={Modal}>
     <Scene key="root">
       <Scene
-        hideNavBar
-        title="Google Map"
+        title="Driver Guide"
         titleStyle={titleStyle}
         key={c.DASHBOARD}
         component={Dashboard}
@@ -27,6 +27,7 @@ const scenes = Actions.create(
       key={c.WAITING_FOR_NEXT_DELIVERY_MODAL}
       component={WaitingForNextDelivery}
     />
+    <Scene key={c.NEW_DELIVERY_ADDED_MODAL} component={NewDeliveryCome} />
   </Scene> // eslint-disable-line comma-dangle
 )
 

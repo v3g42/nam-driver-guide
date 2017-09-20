@@ -23,8 +23,9 @@ const styles = EStyleSheet.create({
   message: {
     textAlign: 'center',
     marginHorizontal: 10,
-    marginTop: -40,
+    marginTop: -20,
     marginBottom: 20,
+    fontSize: '1.3rem',
   },
   closeButton: {
     padding: 8,

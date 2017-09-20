@@ -4,9 +4,10 @@ import { View, Text } from 'react-native'
 import Button from 'react-native-button'
 import { Actions as scenes } from 'react-native-router-flux'
 import Icon from 'react-native-vector-icons/Ionicons'
+import * as Animatable from 'react-native-animatable'
 import { bindActionCreators } from 'redux'
 import actions from '../../../actions'
-import styles from './waitingForNextDelivery.style'
+import styles from './newDeliveryCome.style'
 
 class WaitingForNextDelivery extends React.Component {
   closeModal = () => {
@@ -17,13 +18,19 @@ class WaitingForNextDelivery extends React.Component {
     return (
       <View style={styles.container}>
         <View style={styles.wrapper}>
-          <Icon name="ios-done-all" size={190} color="green" />
+          <Animatable.View
+            ref={ref => (this.visitedListView = ref)}
+            animation="bounce"
+            iterationCount="infinite"
+            style={styles.animatableView}
+          >
+            <Icon name="ios-pin-outline" size={190} color="red" />
+          </Animatable.View>
           <Text style={styles.message}>
-            Done, you've reached the current delivery. Please take a rest while
-            wait for next delivery!
+            New delivery added. Please see the new router in the map.
           </Text>
           <Button style={styles.closeButton} onPress={this.closeModal}>
-            Close
+            OK
           </Button>
         </View>
       </View>

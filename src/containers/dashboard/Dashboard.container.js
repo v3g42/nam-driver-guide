@@ -57,7 +57,7 @@ class Dashboard extends React.Component {
   renderCompletedRow = rowData => {
     return (
       <View style={styles.visitedDoneRow}>
-        <Icon name="ios-done-all" size={60} color="green" />
+        <Icon name="ios-checkmark-circle" size={60} color="green" />
         <Text style={styles.visitedDoneRowText}>
           {rowData.address}
         </Text>
