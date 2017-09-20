@@ -46,6 +46,11 @@ export default function auth(state = initialState, action) {
         visitedStop: [state.currentStop, ...state.visitedStop],
         currentStop: null,
       }
+    case t.ADD_DELIVERY:
+      return {
+        ...state,
+        currentStop: action.payload,
+      }
     default:
       return state
   }
