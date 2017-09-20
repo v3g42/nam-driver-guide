@@ -22,6 +22,48 @@ class Dashboard extends React.Component {
 
     this.visitedDataSource = ds.cloneWithRows([])
   }
+
+  render() {
+    const {
+      currentLocation,
+      router,
+      currentStop,
+      visitedStop,
+      toCurrentStop,
+    } = this.props
+
+    if (!currentLocation)
+      return (
+        <View style={styles.container}>
+          <ActivityIndicator style={styles.spiner} color={'red'} />
+        </View>
+      )
+
+    this.visitedDataSource = ds.cloneWithRows(visitedStop)
+
+    let currentStopLatLong = null
+    if (currentStop) {
+      const currentStopArr = currentStop.latlong.split(',')
+      currentStopLatLong = {
+        latitude: parseFloat(currentStopArr[0]),
+        longitude: parseFloat(currentStopArr[1]),
+      }
+    }
+    return (
+      <View style={styles.container}>
+        {this.renderMapView(
+          currentLocation,
+          router,
+          currentStop,
+          currentStopLatLong
+        )}
+        {this.renderGoToCurrentLocationFloatButton()}
+        {this.renderAnimatableVisitedList()}
+        {this.renderBottomInfoButton(currentStop, toCurrentStop)}
+      </View>
+    )
+  }
+
   onPressGotoCurrentPositionButton = () => {
     this.setState({
       region: this.props.currentLocation,
@@ -65,104 +107,95 @@ class Dashboard extends React.Component {
     )
   }
 
-  render() {
-    const {
-      currentLocation,
-      router,
-      currentStop,
-      visitedStop,
-      toCurrentStop,
-    } = this.props
-
-    if (!currentLocation)
-      return (
-        <View style={styles.container}>
-          <ActivityIndicator style={styles.spiner} color={'red'} />
-        </View>
-      )
-
-    this.visitedDataSource = ds.cloneWithRows(visitedStop)
-
-    let currentStopLatLong = null
-    if (currentStop) {
-      const currentStopArr = currentStop.latlong.split(',')
-      currentStopLatLong = {
-        latitude: parseFloat(currentStopArr[0]),
-        longitude: parseFloat(currentStopArr[1]),
-      }
-    }
+  renderMapView = (
+    currentLocation,
+    router,
+    currentStop,
+    currentStopLatLong
+  ) => {
     return (
-      <View style={styles.container}>
-        <MapView
-          onPress={this.hideVisitedDoneList}
-          region={this.state.region}
-          style={styles.mapView}
-          initialRegion={currentLocation}
-        >
-          {router &&
-            <MapView.Polyline
-              coordinates={router}
-              strokeWidth={5}
-              strokeColor="blue"
-            />}
+      <MapView
+        onPress={this.hideVisitedDoneList}
+        region={this.state.region}
+        style={styles.mapView}
+        initialRegion={currentLocation}
+      >
+        {router &&
+          <MapView.Polyline
+            coordinates={router}
+            strokeWidth={5}
+            strokeColor="blue"
+          />}
 
-          {currentLocation &&
-            <MapView.Marker coordinate={currentLocation}>
-              <Icon name="md-bicycle" size={30} color="red" />
-            </MapView.Marker>}
-          {currentStop &&
-            <MapView.Marker coordinate={currentStopLatLong}>
-              <Image
-                style={styles.stopIcon}
-                source={require('../../assets/deliveryPlace.png')}
-              />
-            </MapView.Marker>}
-        </MapView>
+        {currentLocation &&
+          <MapView.Marker coordinate={currentLocation}>
+            <Icon name="md-bicycle" size={30} color="red" />
+          </MapView.Marker>}
+        {currentStop &&
+          <MapView.Marker coordinate={currentStopLatLong}>
+            <Image
+              style={styles.stopIcon}
+              source={require('../../assets/deliveryPlace.png')}
+            />
+          </MapView.Marker>}
+      </MapView>
+    )
+  }
 
-        <Button
-          onPress={this.onPressGotoCurrentPositionButton}
-          containerStyle={styles.currentPosButton}
-        >
-          <Icon
-            name="ios-locate"
-            size={23}
-            style={styles.currentPosButtonIcon}
-            color="red"
-          />
-        </Button>
+  renderGoToCurrentLocationFloatButton = () => {
+    return (
+      <Button
+        onPress={this.onPressGotoCurrentPositionButton}
+        containerStyle={styles.currentPosButton}
+      >
+        <Icon
+          name="ios-locate"
+          size={23}
+          style={styles.currentPosButtonIcon}
+          color="red"
+        />
+      </Button>
+    )
+  }
 
-        <Animatable.View
-          ref={ref => (this.visitedListView = ref)}
-          animation="fadeInUpBig"
-          style={[
-            styles.hiddenVisitedDoneList,
-            { zIndex: this.state.visitedListZIndex },
-          ]}
-        >
-          <Text style={styles.textDoneList}>Done list</Text>
+  renderBottomInfoButton = (currentStop, toCurrentStop) => {
+    return (
+      <Button
+        containerStyle={styles.nextStop}
+        onPress={this.toogleVisitedDoneList}
+      >
+        <Image
+          style={styles.stopIcon}
+          source={require('../../assets/deliveryPlace.png')}
+        />
+        {currentStop &&
+          <Text style={styles.nextStopText}>
+            {`${currentStop.address}  ${toCurrentStop.endAddress
+              ? `-- ${toCurrentStop.endAddress}`
+              : ''}`}
+          </Text>}
+        {!currentStop && <Text style={styles.nextStopText}>No delivery</Text>}
+      </Button>
+    )
+  }
 
-          <ListView
-            dataSource={this.visitedDataSource}
-            renderRow={rowData => this.renderCompletedRow(rowData)}
-          />
-        </Animatable.View>
-        <Button
-          containerStyle={styles.nextStop}
-          onPress={this.toogleVisitedDoneList}
-        >
-          <Image
-            style={styles.stopIcon}
-            source={require('../../assets/deliveryPlace.png')}
-          />
-          {currentStop &&
-            <Text style={styles.nextStopText}>
-              {`${currentStop.address}  ${toCurrentStop.endAddress
-                ? `-- ${toCurrentStop.endAddress}`
-                : ''}`}
-            </Text>}
-          {!currentStop && <Text style={styles.nextStopText}>No delivery</Text>}
-        </Button>
-      </View>
+  renderAnimatableVisitedList = () => {
+    return (
+      <Animatable.View
+        ref={ref => (this.visitedListView = ref)}
+        animation="fadeInUpBig"
+        style={[
+          styles.hiddenVisitedDoneList,
+          { zIndex: this.state.visitedListZIndex },
+        ]}
+      >
+        <Text style={styles.textDoneList}>Done list</Text>
+
+        <ListView
+          dataSource={this.visitedDataSource}
+          renderRow={rowData => this.renderCompletedRow(rowData)}
+        />
+      </Animatable.View>
     )
   }
 }
