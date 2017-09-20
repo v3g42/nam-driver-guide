@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { View, Image, Text, ActivityIndicator, ListView } from 'react-native'
 import Button from 'react-native-button'
 import MapView from 'react-native-maps'
-import * as Animatable from 'react-native-animatable' // eslint-disable-line
+import * as Animatable from 'react-native-animatable'
 import Icon from 'react-native-vector-icons/Ionicons'
 import { bindActionCreators } from 'redux'
 import actions from '../../actions'
@@ -11,16 +11,59 @@ import styles from './dashboard.styles'
 
 const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 })
 
-class LoginContainer extends React.Component {
+class Dashboard extends React.Component {
   constructor(props) {
     super(props)
 
     this.state = {
       region: null,
+      visitedListZIndex: 0,
     }
 
     this.visitedDataSource = ds.cloneWithRows([])
   }
+
+  render() {
+    const {
+      currentLocation,
+      router,
+      currentStop,
+      visitedStop,
+      toCurrentStop,
+    } = this.props
+
+    if (!currentLocation)
+      return (
+        <View style={styles.container}>
+          <ActivityIndicator style={styles.spiner} color={'red'} />
+        </View>
+      )
+
+    this.visitedDataSource = ds.cloneWithRows(visitedStop)
+
+    let currentStopLatLong = null
+    if (currentStop) {
+      const currentStopArr = currentStop.latlong.split(',')
+      currentStopLatLong = {
+        latitude: parseFloat(currentStopArr[0]),
+        longitude: parseFloat(currentStopArr[1]),
+      }
+    }
+    return (
+      <View style={styles.container}>
+        {this.renderMapView(
+          currentLocation,
+          router,
+          currentStop,
+          currentStopLatLong
+        )}
+        {this.renderGoToCurrentLocationFloatButton()}
+        {this.renderAnimatableVisitedList()}
+        {this.renderBottomInfoButton(currentStop, toCurrentStop)}
+      </View>
+    )
+  }
+
   onPressGotoCurrentPositionButton = () => {
     this.setState({
       region: this.props.currentLocation,
@@ -32,72 +75,127 @@ class LoginContainer extends React.Component {
     }, 1000)
   }
 
-  render() {
-    const { currentLocation, router, nextStop, visitedStop } = this.props
+  hideVisitedDoneList = () => {
+    if (this.state.visitedListZIndex === 1000) {
+      this.visitedListView.fadeOutDownBig().then(() => {
+        this.setState({
+          visitedListZIndex: 0,
+        })
+      })
+    }
+  }
 
-    if (!currentLocation)
-      return (
-        <View style={styles.container}>
-          <ActivityIndicator style={styles.spiner} color={'red'} />
-        </View>
-      )
+  toogleVisitedDoneList = () => {
+    if (!this.visitedListView) return
 
-    this.visitedDataSource = ds.cloneWithRows(visitedStop)
+    if (this.state.visitedListZIndex === 0) {
+      this.setState({
+        visitedListZIndex: 1000,
+      })
+      this.visitedListView.fadeInUpBig()
+    } else this.hideVisitedDoneList()
+  }
 
+  renderCompletedRow = rowData => {
     return (
-      <View style={styles.container}>
-        <MapView
-          region={this.state.region}
-          style={styles.mapView}
-          initialRegion={currentLocation}
-        >
-          {router &&
-            <MapView.Polyline
-              coordinates={router}
-              strokeWidth={5}
-              strokeColor="blue"
-            />}
+      <View style={styles.visitedDoneRow}>
+        <Icon name="ios-checkmark-circle" size={60} color="green" />
+        <Text style={styles.visitedDoneRowText}>
+          {rowData.address}
+        </Text>
+      </View>
+    )
+  }
 
-          {currentLocation &&
-            <MapView.Marker coordinate={currentLocation}>
-              <Icon name="md-bicycle" size={30} color="red" />
-            </MapView.Marker>}
-        </MapView>
-        <Button
-          onPress={this.onPressGotoCurrentPositionButton}
-          containerStyle={styles.currentPosButton}
-        >
-          <Icon
-            name="ios-locate"
-            size={23}
-            style={styles.currentPosButtonIcon}
-            color="red"
-          />
-        </Button>
-        <View>
-          <View style={styles.hiddenVisitedDoneList}>
-            <ListView
-              dataSource={this.visitedDataSource}
-              renderRow={rowData =>
-                <View style={styles.visitedDoneRow}>
-                  <Icon name="ios-done-all" size={60} color="green" />
-                  <Text style={styles.visitedDoneRowText}>
-                    {rowData.address}
-                  </Text>
-                </View>}
-            />
-          </View>
-          <Button containerStyle={styles.nextStop}>
+  renderMapView = (
+    currentLocation,
+    router,
+    currentStop,
+    currentStopLatLong
+  ) => {
+    return (
+      <MapView
+        onPress={this.hideVisitedDoneList}
+        region={this.state.region}
+        style={styles.mapView}
+        initialRegion={currentLocation}
+      >
+        {router &&
+          <MapView.Polyline
+            coordinates={router}
+            strokeWidth={5}
+            strokeColor="blue"
+          />}
+
+        {currentLocation &&
+          <MapView.Marker coordinate={currentLocation}>
+            <Icon name="md-bicycle" size={30} color="red" />
+          </MapView.Marker>}
+        {currentStop &&
+          <MapView.Marker coordinate={currentStopLatLong}>
             <Image
               style={styles.stopIcon}
               source={require('../../assets/deliveryPlace.png')}
             />
-            <Text>
-              {nextStop.address}
-            </Text>
-          </Button>
-        </View>
-      </View>
+          </MapView.Marker>}
+      </MapView>
+    )
+  }
+
+  renderGoToCurrentLocationFloatButton = () => {
+    return (
+      <Button
+        onPress={this.onPressGotoCurrentPositionButton}
+        containerStyle={styles.currentPosButton}
+      >
+        <Icon
+          name="ios-locate"
+          size={23}
+          style={styles.currentPosButtonIcon}
+          color="red"
+        />
+      </Button>
+    )
+  }
+
+  renderBottomInfoButton = (currentStop, toCurrentStop) => {
+    return (
+      <Button
+        containerStyle={styles.nextStop}
+        onPress={this.toogleVisitedDoneList}
+      >
+        <Image
+          style={styles.stopIcon}
+          source={require('../../assets/deliveryPlace.png')}
+        />
+        {currentStop &&
+          <Text style={styles.nextStopText}>
+            {`${currentStop.address}  ${toCurrentStop.endAddress
+              ? `-- ${toCurrentStop.endAddress}`
+              : ''}`}
+          </Text>}
+        {!currentStop && <Text style={styles.nextStopText}>No delivery</Text>}
+      </Button>
+    )
+  }
+
+  renderAnimatableVisitedList = () => {
+    return (
+      <Animatable.View
+        ref={ref => (this.visitedListView = ref)}
+        animation="fadeInUpBig"
+        style={[
+          styles.hiddenVisitedDoneList,
+          { zIndex: this.state.visitedListZIndex },
+        ]}
+      >
+        <Text style={styles.textDoneList}>Done list</Text>
+
+        <ListView
+          dataSource={this.visitedDataSource}
+          renderRow={rowData => this.renderCompletedRow(rowData)}
+        />
+      </Animatable.View>
     )
   }
 }
@@ -109,21 +207,24 @@ const mapDispatchToProps = dispatch => ({
 const mapStateToProps = state => {
   const currentLocation = state.location.currentLocation
   const router = state.location.router
-  const nextStop = state.delivery.nextStop
+  const currentStop = state.delivery.currentStop
+  const toCurrentStop = state.delivery.toCurrentStop
   const visitedStop = state.delivery.visitedStop
   return {
     currentLocation,
     router,
-    nextStop,
+    currentStop,
     visitedStop,
+    toCurrentStop,
   }
 }
 
-LoginContainer.propTypes = {
+Dashboard.propTypes = {
   currentLocation: React.PropTypes.object,
   router: React.PropTypes.array,
   visitedStop: React.PropTypes.array,
-  nextStop: React.PropTypes.object,
+  currentStop: React.PropTypes.object,
+  toCurrentStop: React.PropTypes.object,
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(LoginContainer)
+export default connect(mapStateToProps, mapDispatchToProps)(Dashboard)

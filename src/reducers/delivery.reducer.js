@@ -1,10 +1,17 @@
 import * as t from '../actionTypes'
 
 const initialState = {
-  nextStop: {
-    latlong: '10.757189, 106.672099',
-    address: 'An Dong Market',
+  currentStop: {
+    latlong: '10.772260, 106.684241',
+    address: 'Vuon Chuoi Market',
   },
+  toCurrentStop: {
+    distance: null,
+    duration: null,
+    startAddress: null,
+    endAddress: null,
+  },
+  pendingStop: null,
   visitedStop: [
     {
       latlong: '10.157189, 106.172099',
@@ -23,11 +30,26 @@ const initialState = {
 
 export default function auth(state = initialState, action) {
   switch (action.type) {
-    case t.RECEIVED_FCM_NOTIFICATION:
+    case t.LOAD_DIRECTION_SUCCESS:
+      const { distance, duration, startAddress, endAddress } = action.payload
       return {
         ...state,
-        visitedStop: [...state.visitedStop, state.nextStop],
-        nextStop: action.payload,
+        toCurrentStop: {
+          distance,
+          duration,
+          startAddress,
+          endAddress,
+        },
+      }
+    case t.REACHED_TO_CURRENT_DELIVERY:
+      return {
+        visitedStop: [state.currentStop, ...state.visitedStop],
+        currentStop: null,
+      }
+    case t.ADD_DELIVERY:
+      return {
+        ...state,
+        currentStop: action.payload,
       }
     default:
       return state
