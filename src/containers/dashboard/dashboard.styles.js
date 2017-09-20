@@ -14,19 +14,16 @@ const styles = EStyleSheet.create({
     flex: 1,
     zIndex: 500,
   },
-  nextStop: {
+  statusBar: {
     zIndex: 501,
     shadowOpacity: 0.5,
     padding: 10,
     position: 'absolute',
     backgroundColor: '#fff',
-    flexDirection: 'row',
+    flexDirection: 'column',
     bottom: 10,
     width: '90%',
     left: '5%',
-  },
-  nextStopText: {
-    maxWidth: '75%',
   },
   stopIcon: {
     width: 25,
@@ -43,31 +40,38 @@ const styles = EStyleSheet.create({
     position: 'absolute',
     alignItems: 'center',
     justifyContent: 'center',
-    bottom: 90,
+    bottom: 100,
     right: 20,
   },
   currentPosButtonIcon: {
     backgroundColor: 'transparent',
   },
   textDoneList: {
-    fontSize: 16,
+    fontSize: 19,
     alignSelf: 'center',
     marginTop: 10,
   },
-  visitedDoneRow: {
+  deliveryRow: {
+    borderBottomWidth: 1,
+    borderBottomColor: '#e5e5e5',
+    paddingVertical: 9,
+    flexDirection: 'column',
+  },
+  locationItem: {
     paddingHorizontal: 13,
     flexDirection: 'row',
     alignItems: 'center',
   },
-  visitedDoneRowText: {
+  locationItemText: {
     marginLeft: 15,
+    marginRight: 5,
   },
   hiddenVisitedDoneList: {
     width: '90%',
     maxHeight: '60%',
     left: '5%',
     shadowOpacity: 0.5,
-    bottom: 85,
+    bottom: 95,
     position: 'absolute',
   },
 })

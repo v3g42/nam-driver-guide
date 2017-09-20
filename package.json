@@ -19,6 +19,7 @@
   },
   "dependencies": {
     "@mapbox/polyline": "^0.2.0",
+    "@remobile/react-native-toast": "^1.0.6",
     "moment": "^2.18.1",
     "react": "16.0.0-alpha.12",
     "react-native": "0.46.4",

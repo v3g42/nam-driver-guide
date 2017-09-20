@@ -6,29 +6,32 @@ const initialState = {
     done: false,
     pickUp: {
       done: false,
-      latitude: 10.773466,
-      longitude: 106.685371,
-      address: '263 Nguyen Dinh Chieu',
+      latitude: 10.774414,
+      longitude: 106.686272,
+      address: '263 Nguyen Dinh Chieu, Phuong 12, Quan Phu Nhuan',
     },
     dropOff: {
       done: false,
-      latitude: 10.768797,
-      longitude: 106.684882,
-      address: 'Benh Vien Tu Du',
+      latitude: 10.773461,
+      longitude: 106.685365,
+      address: 'Công Ty Tnhh Mtv Tin Học Khánh Thảo',
     },
   },
-  visitedStop: [
+  doneList: [
     {
-      latlong: '10.157189, 106.172099',
-      address: 'Thu Duc market',
-    },
-    {
-      latlong: '10.257189, 106.272099',
-      address: '11 Hoang Dieu 2 Street',
-    },
-    {
-      latlong: '10.357189, 106.262099',
-      address: '12 Pham Van Dong Street',
+      done: false,
+      pickUp: {
+        done: false,
+        latitude: 10.773466,
+        longitude: 106.685371,
+        address: '263 Nguyen Van Chieu, Phuong 212, Quan Go Vap',
+      },
+      dropOff: {
+        done: false,
+        latitude: 10.768797,
+        longitude: 106.684882,
+        address: 'Nha Khoa Tai Mui Hong, Cong Quynh, Quan 12',
+      },
     },
   ],
 }
@@ -46,6 +49,10 @@ export default function auth(state = initialState, { type, payload }) {
           ...state.delivery,
           ...delivery,
         },
+        doneList:
+          payload === c.GOTO_DROPOFF
+            ? [state.delivery, ...state.doneList]
+            : state.doneList,
       }
     case t.ADD_DELIVERY:
       return {

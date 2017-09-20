@@ -52,6 +52,7 @@
 		9F4742A7CC434363952840D4 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9221F67794554D08827B11CB /* Zocial.ttf */; };
 		A49E290C592E449C82C7F16F /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 19902EA79A5346F98A867EB4 /* Foundation.ttf */; };
 		F50149F91F8D4F8093FDE43A /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0F992AF148534CAD86B44C98 /* SimpleLineIcons.ttf */; };
+		F779CA91386A4F0F85E2CF6B /* libRCTToast.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F44FA49E175A452284D10B82 /* libRCTToast.a */; };
 		FC90EA93B4FE4A34834D1116 /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 387D68FFDDB749BFB4FC1A50 /* Ionicons.ttf */; };
 /* End PBXBuildFile section */
 
@@ -245,6 +246,13 @@
 			remoteGlobalIDString = 11FA5C511C4A1296003AC2EE;
 			remoteInfo = AirMaps;
 		};
+		823735031F72756100197FE2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 335708A97881443B91B30706 /* RCTToast.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 327633421BFAAD7E004DA88E;
+			remoteInfo = RCTToast;
+		};
 		824B1D161F6E36D30054913C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 146833FF1AC3E56700842450 /* React.xcodeproj */;
@@ -331,6 +339,7 @@
 		2F7D59DEC62046B3BFD34B61 /* RNFIRMessaging.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNFIRMessaging.xcodeproj; path = "../node_modules/react-native-fcm/ios/RNFIRMessaging.xcodeproj"; sourceTree = "<group>"; };
 		30C211A5890D4E3BAC3EA975 /* RNVectorIcons.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNVectorIcons.xcodeproj; path = "../node_modules/react-native-vector-icons/RNVectorIcons.xcodeproj"; sourceTree = "<group>"; };
 		31BEC0E48AB80C900106621A /* Pods-DriverGuide.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DriverGuide.release.xcconfig"; path = "Pods/Target Support Files/Pods-DriverGuide/Pods-DriverGuide.release.xcconfig"; sourceTree = "<group>"; };
+		335708A97881443B91B30706 /* RCTToast.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RCTToast.xcodeproj; path = "../node_modules/@remobile/react-native-toast/ios/RCTToast.xcodeproj"; sourceTree = "<group>"; };
 		372FBE4B047F4D2FA4C6A98B /* AirMaps.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = AirMaps.xcodeproj; path = "../node_modules/react-native-maps/lib/ios/AirMaps.xcodeproj"; sourceTree = "<group>"; };
 		387D68FFDDB749BFB4FC1A50 /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
 		39939166FB22446BA86857C5 /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialCommunityIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; };
@@ -351,6 +360,7 @@
 		D782D2B865EB74CE9FDF06F9 /* Pods-DriverGuide.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DriverGuide.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DriverGuide/Pods-DriverGuide.debug.xcconfig"; sourceTree = "<group>"; };
 		DA20B07FCF1A94E3B1B65DD2 /* libPods-DriverGuide.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DriverGuide.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F12CA04957E84C9E83523679 /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
+		F44FA49E175A452284D10B82 /* libRCTToast.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRCTToast.a; sourceTree = "<group>"; };
 		FBC73DAB9F7047D2A774AB3A /* libRNFIRMessaging.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNFIRMessaging.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -383,6 +393,7 @@
 				3D3F8C0881E645A9BF677251 /* libRNFIRMessaging.a in Frameworks */,
 				4BBF05A61DC8479B8D80AA30 /* libRNVectorIcons.a in Frameworks */,
 				3461524BCBD44FB1B55AC1E3 /* libAirMaps.a in Frameworks */,
+				F779CA91386A4F0F85E2CF6B /* libRCTToast.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -549,6 +560,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		823735001F72756100197FE2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				823735041F72756100197FE2 /* libRCTToast.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		824B1D291F6E37440054913C /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -580,6 +599,7 @@
 				FBC73DAB9F7047D2A774AB3A /* libRNFIRMessaging.a */,
 				824123BD229947348D8A1A69 /* libRNVectorIcons.a */,
 				8F980D82CF1A44239E192A15 /* libAirMaps.a */,
+				F44FA49E175A452284D10B82 /* libRCTToast.a */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
@@ -602,6 +622,7 @@
 				2F7D59DEC62046B3BFD34B61 /* RNFIRMessaging.xcodeproj */,
 				30C211A5890D4E3BAC3EA975 /* RNVectorIcons.xcodeproj */,
 				372FBE4B047F4D2FA4C6A98B /* AirMaps.xcodeproj */,
+				335708A97881443B91B30706 /* RCTToast.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -840,6 +861,10 @@
 					ProjectRef = 832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */;
 				},
 				{
+					ProductGroup = 823735001F72756100197FE2 /* Products */;
+					ProjectRef = 335708A97881443B91B30706 /* RCTToast.xcodeproj */;
+				},
+				{
 					ProductGroup = 00C302E01ABCB9EE00DB3ED1 /* Products */;
 					ProjectRef = 00C302DF1ABCB9EE00DB3ED1 /* RCTVibration.xcodeproj */;
 				},
@@ -1048,6 +1073,13 @@
 			fileType = archive.ar;
 			path = libAirMaps.a;
 			remoteRef = 821F007F1F6E74DA009328F7 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		823735041F72756100197FE2 /* libRCTToast.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRCTToast.a;
+			remoteRef = 823735031F72756100197FE2 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		824B1D171F6E36D30054913C /* libthird-party.a */ = {
@@ -1307,12 +1339,14 @@
 					"$(SRCROOT)/../node_modules/react-native-fcm/ios",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-maps/lib/ios/**",
+					"$(SRCROOT)/../node_modules/@remobile/react-native-toast/ios/RCTToast",
 				);
 				INFOPLIST_FILE = DriverGuideTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1338,12 +1372,14 @@
 					"$(SRCROOT)/../node_modules/react-native-fcm/ios",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-maps/lib/ios/**",
+					"$(SRCROOT)/../node_modules/@remobile/react-native-toast/ios/RCTToast",
 				);
 				INFOPLIST_FILE = DriverGuideTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1373,6 +1409,7 @@
 					"$(SRCROOT)/../node_modules/react-native-fcm/ios",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-maps/lib/ios/**",
+					"$(SRCROOT)/../node_modules/@remobile/react-native-toast/ios/RCTToast",
 				);
 				INFOPLIST_FILE = DriverGuide/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1403,6 +1440,7 @@
 					"$(SRCROOT)/../node_modules/react-native-fcm/ios",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-maps/lib/ios/**",
+					"$(SRCROOT)/../node_modules/@remobile/react-native-toast/ios/RCTToast",
 				);
 				INFOPLIST_FILE = DriverGuide/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1437,11 +1475,13 @@
 					"$(SRCROOT)/../node_modules/react-native-fcm/ios",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-maps/lib/ios/**",
+					"$(SRCROOT)/../node_modules/@remobile/react-native-toast/ios/RCTToast",
 				);
 				INFOPLIST_FILE = "DriverGuide-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1477,11 +1517,13 @@
 					"$(SRCROOT)/../node_modules/react-native-fcm/ios",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-maps/lib/ios/**",
+					"$(SRCROOT)/../node_modules/@remobile/react-native-toast/ios/RCTToast",
 				);
 				INFOPLIST_FILE = "DriverGuide-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1518,6 +1560,7 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.DriverGuide-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1542,6 +1585,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",

@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { View, Image, Text, ActivityIndicator, ListView } from 'react-native'
+import { View, Text, ActivityIndicator, ListView } from 'react-native'
 import Button from 'react-native-button'
 import MapView from 'react-native-maps'
 import * as Animatable from 'react-native-animatable'
@@ -24,7 +24,7 @@ class Dashboard extends React.Component {
   }
 
   render() {
-    const { currentLocation, visitedStop, delivery, router } = this.props
+    const { currentLocation, doneList, delivery, router } = this.props
 
     if (!currentLocation)
       return (
@@ -33,13 +33,14 @@ class Dashboard extends React.Component {
         </View>
       )
 
-    this.visitedDataSource = ds.cloneWithRows(visitedStop)
+    this.visitedDataSource = ds.cloneWithRows(doneList)
 
     return (
       <View style={styles.container}>
         {this.renderMapView(currentLocation, delivery, router)}
         {this.renderGoToCurrentLocationFloatButton()}
         {this.renderAnimatableVisitedList()}
+        {this.renderStatusBar(delivery, router)}
       </View>
     )
   }
@@ -76,13 +77,26 @@ class Dashboard extends React.Component {
     } else this.hideVisitedDoneList()
   }
 
-  renderCompletedRow = rowData => {
+  renderCompletedRow = (rowData, dontShowDivider) => {
     return (
-      <View style={styles.visitedDoneRow}>
-        <Icon name="check-circle-outline" size={60} color="green" />
-        <Text style={styles.visitedDoneRowText}>
-          {rowData.address}
-        </Text>
+      <View
+        style={[
+          styles.deliveryRow,
+          dontShowDivider ? { borderBottomWidth: 0, paddingVertical: 0 } : null,
+        ]}
+      >
+        <View style={styles.locationItem}>
+          <Icon name="basket-fill" size={16} color="red" />
+          <Text style={styles.locationItemText}>
+            Pickup: {rowData.pickUp.address}
+          </Text>
+        </View>
+        <View style={styles.locationItem}>
+          <Icon name="basket-unfill" size={16} color="green" />
+          <Text style={styles.locationItemText}>
+            Dropoff: {rowData.dropOff.address}
+          </Text>
+        </View>
       </View>
     )
   }
@@ -108,7 +122,7 @@ class Dashboard extends React.Component {
         {delivery &&
           delivery.dropOff &&
           <MapView.Marker coordinate={delivery.dropOff}>
-            <Icon name="basket-unfill" size={30} color="red" />
+            <Icon name="basket-unfill" size={30} color="green" />
             <Text>Dropoff</Text>
           </MapView.Marker>}
 
@@ -138,23 +152,13 @@ class Dashboard extends React.Component {
     )
   }
 
-  renderBottomInfoButton = (currentStop, toCurrentStop) => {
+  renderStatusBar = delivery => {
     return (
       <Button
-        containerStyle={styles.nextStop}
+        containerStyle={styles.statusBar}
         onPress={this.toogleVisitedDoneList}
       >
-        <Image
-          style={styles.stopIcon}
-          source={require('../../assets/deliveryPlace.png')}
-        />
-        {currentStop &&
-          <Text style={styles.nextStopText}>
-            {`${currentStop.address}  ${toCurrentStop.endAddress
-              ? `-- ${toCurrentStop.endAddress}`
-              : ''}`}
-          </Text>}
-        {!currentStop && <Text style={styles.nextStopText}>No delivery</Text>}
+        {this.renderCompletedRow(delivery, true)}
       </Button>
     )
   }
@@ -189,13 +193,13 @@ const mapStateToProps = state => {
   const router = state.location.router
   const currentStop = state.delivery.currentStop
   const toCurrentStop = state.delivery.toCurrentStop
-  const visitedStop = state.delivery.visitedStop
+  const doneList = state.delivery.doneList
   const delivery = state.delivery.delivery
   return {
     currentLocation,
     router,
     currentStop,
-    visitedStop,
+    doneList,
     toCurrentStop,
     delivery,
   }
@@ -203,7 +207,7 @@ const mapStateToProps = state => {
 
 Dashboard.propTypes = {
   currentLocation: React.PropTypes.object,
-  visitedStop: React.PropTypes.array,
+  doneList: React.PropTypes.array,
   delivery: React.PropTypes.object,
   router: React.PropTypes.object,
 }

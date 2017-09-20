@@ -1,6 +1,7 @@
 import { takeLatest, call, put, select } from 'redux-saga/effects'
 import Polyline from '@mapbox/polyline'
 import { Actions as scenes } from 'react-native-router-flux'
+import Toast from '@remobile/react-native-toast'
 import * as api from '../../api'
 import * as util from '../../utils'
 import actions from '../../actions'
@@ -16,6 +17,19 @@ function exportCoords(respJson) {
       longitude: point[1],
     }
   })
+}
+
+function* judge(latitude, longitude, targetLatitude, targetLongitude, phase) {
+  const distanceForJudge = util.getDistanceFromLatLonInMet(
+    { latitude, longitude },
+    { targetLatitude, targetLongitude }
+  )
+  if (distanceForJudge <= 100) {
+    yield put(actions[t.REACHED_TO_CURRENT_DELIVERY](phase))
+
+    Toast.show(`You've reached to ${phase}!`)
+    if (phase === c.GOTO_DROPOFF) scenes[c.WAITING_FOR_NEXT_DELIVERY_MODAL]()
+  }
 }
 
 export function* fetchDirectionFlow() {
@@ -54,15 +68,7 @@ export function* fetchDirectionFlow() {
       start_address: startAddress,
     } = respJson.routes[0].legs[0]
 
-    // judge
-    const distanceForJudge = util.getDistanceFromLatLonInMet(
-      { latitude, longitude },
-      { targetLatitude, targetLongitude }
-    )
-    if (distanceForJudge <= 100) {
-      yield put(actions[t.REACHED_TO_CURRENT_DELIVERY](phase))
-      // scenes[c.WAITING_FOR_NEXT_DELIVERY_MODAL]()
-    }
+    yield judge(latitude, longitude, targetLatitude, targetLongitude, phase)
 
     const coords = exportCoords(respJson)
     yield put(
