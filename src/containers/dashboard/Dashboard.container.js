@@ -4,7 +4,7 @@ import { View, Image, Text, ActivityIndicator, ListView } from 'react-native'
 import Button from 'react-native-button'
 import MapView from 'react-native-maps'
 import * as Animatable from 'react-native-animatable'
-import Icon from 'react-native-vector-icons/Ionicons'
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 import { bindActionCreators } from 'redux'
 import actions from '../../actions'
 import styles from './dashboard.styles'
@@ -24,13 +24,7 @@ class Dashboard extends React.Component {
   }
 
   render() {
-    const {
-      currentLocation,
-      router,
-      currentStop,
-      visitedStop,
-      toCurrentStop,
-    } = this.props
+    const { currentLocation, visitedStop, delivery, router } = this.props
 
     if (!currentLocation)
       return (
@@ -41,30 +35,16 @@ class Dashboard extends React.Component {
 
     this.visitedDataSource = ds.cloneWithRows(visitedStop)
 
-    let currentStopLatLong = null
-    if (currentStop) {
-      const currentStopArr = currentStop.latlong.split(',')
-      currentStopLatLong = {
-        latitude: parseFloat(currentStopArr[0]),
-        longitude: parseFloat(currentStopArr[1]),
-      }
-    }
     return (
       <View style={styles.container}>
-        {this.renderMapView(
-          currentLocation,
-          router,
-          currentStop,
-          currentStopLatLong
-        )}
+        {this.renderMapView(currentLocation, delivery, router)}
         {this.renderGoToCurrentLocationFloatButton()}
         {this.renderAnimatableVisitedList()}
-        {this.renderBottomInfoButton(currentStop, toCurrentStop)}
       </View>
     )
   }
 
-  onPressGotoCurrentPositionButton = () => {
+  onPressGotoCurrentLocationButton = () => {
     this.setState({
       region: this.props.currentLocation,
     })
@@ -99,7 +79,7 @@ class Dashboard extends React.Component {
   renderCompletedRow = rowData => {
     return (
       <View style={styles.visitedDoneRow}>
-        <Icon name="ios-checkmark-circle" size={60} color="green" />
+        <Icon name="check-circle-outline" size={60} color="green" />
         <Text style={styles.visitedDoneRowText}>
           {rowData.address}
         </Text>
@@ -107,12 +87,7 @@ class Dashboard extends React.Component {
     )
   }
 
-  renderMapView = (
-    currentLocation,
-    router,
-    currentStop,
-    currentStopLatLong
-  ) => {
+  renderMapView = (currentLocation, delivery, router) => {
     return (
       <MapView
         onPress={this.hideVisitedDoneList}
@@ -120,24 +95,29 @@ class Dashboard extends React.Component {
         style={styles.mapView}
         initialRegion={currentLocation}
       >
-        {router &&
+        {currentLocation &&
+          <MapView.Marker coordinate={currentLocation}>
+            <Icon name="motorbike" size={30} color="red" />
+          </MapView.Marker>}
+        {delivery &&
+          delivery.pickUp &&
+          <MapView.Marker coordinate={delivery.pickUp}>
+            <Icon name="basket-fill" size={30} color="red" />
+            <Text>Pick up</Text>
+          </MapView.Marker>}
+        {delivery &&
+          delivery.dropOff &&
+          <MapView.Marker coordinate={delivery.dropOff}>
+            <Icon name="basket-unfill" size={30} color="red" />
+            <Text>Dropoff</Text>
+          </MapView.Marker>}
+
+        {router.coords &&
           <MapView.Polyline
-            coordinates={router}
+            coordinates={router.coords}
             strokeWidth={5}
             strokeColor="blue"
           />}
-
-        {currentLocation &&
-          <MapView.Marker coordinate={currentLocation}>
-            <Icon name="md-bicycle" size={30} color="red" />
-          </MapView.Marker>}
-        {currentStop &&
-          <MapView.Marker coordinate={currentStopLatLong}>
-            <Image
-              style={styles.stopIcon}
-              source={require('../../assets/deliveryPlace.png')}
-            />
-          </MapView.Marker>}
       </MapView>
     )
   }
@@ -145,11 +125,11 @@ class Dashboard extends React.Component {
   renderGoToCurrentLocationFloatButton = () => {
     return (
       <Button
-        onPress={this.onPressGotoCurrentPositionButton}
+        onPress={this.onPressGotoCurrentLocationButton}
         containerStyle={styles.currentPosButton}
       >
         <Icon
-          name="ios-locate"
+          name="crosshairs-gps"
           size={23}
           style={styles.currentPosButtonIcon}
           color="red"
@@ -210,21 +190,22 @@ const mapStateToProps = state => {
   const currentStop = state.delivery.currentStop
   const toCurrentStop = state.delivery.toCurrentStop
   const visitedStop = state.delivery.visitedStop
+  const delivery = state.delivery.delivery
   return {
     currentLocation,
     router,
     currentStop,
     visitedStop,
     toCurrentStop,
+    delivery,
   }
 }
 
 Dashboard.propTypes = {
   currentLocation: React.PropTypes.object,
-  router: React.PropTypes.array,
   visitedStop: React.PropTypes.array,
-  currentStop: React.PropTypes.object,
-  toCurrentStop: React.PropTypes.object,
+  delivery: React.PropTypes.object,
+  router: React.PropTypes.object,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Dashboard)

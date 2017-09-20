@@ -1,1 +1,2 @@
-export const PASSCODE_LENGTH = 6
+export const GOTO_PICKUP = 0
+export const GOTO_DROPOFF = 1
