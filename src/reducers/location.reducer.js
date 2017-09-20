@@ -9,6 +9,7 @@ const initialState = {
     startAddress: null,
     endAddress: null,
   },
+  willMockRouterIndex: 0,
 }
 
 export default function auth(state = initialState, { type, payload }) {
