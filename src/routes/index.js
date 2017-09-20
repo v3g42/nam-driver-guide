@@ -8,16 +8,11 @@ import Dashboard from '../containers/dashboard/Dashboard.container'
 import WaitingForNextDelivery from '../containers/dashboard/waitingForNextDeliveryModal/WaitingForNextDelivery.modal'
 import NewDeliveryCome from '../containers/dashboard/newDeliveryComeModal/NewDeliveryCome.modal'
 
-const titleStyle = {
-  color: '#000',
-}
-
 const scenes = Actions.create(
   <Scene key="modal" component={Modal}>
     <Scene key="root">
       <Scene
-        title="Driver Guide"
-        titleStyle={titleStyle}
+        hideNavBar
         key={c.DASHBOARD}
         component={Dashboard}
         type={ActionConst.REPLACE}

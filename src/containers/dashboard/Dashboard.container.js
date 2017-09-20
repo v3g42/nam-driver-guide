@@ -158,7 +158,11 @@ class Dashboard extends React.Component {
         containerStyle={styles.statusBar}
         onPress={this.toogleVisitedDoneList}
       >
-        {this.renderCompletedRow(delivery, true)}
+        {!delivery.done && this.renderCompletedRow(delivery, true)}
+        {delivery.done &&
+          <Text style={{ alignSelf: 'stretch', textAlign: 'center' }}>
+            No pending trips
+          </Text>}
       </Button>
     )
   }

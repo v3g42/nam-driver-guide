@@ -27,7 +27,7 @@ function* judge(latitude, longitude, targetLatitude, targetLongitude, phase) {
   if (distanceForJudge <= 100) {
     yield put(actions[t.REACHED_TO_CURRENT_DELIVERY](phase))
 
-    Toast.show(`You've reached to ${phase}!`)
+    Toast.showLongTop(`You've reached to ${phase}!`)
     if (phase === c.GOTO_DROPOFF) scenes[c.WAITING_FOR_NEXT_DELIVERY_MODAL]()
   }
 }

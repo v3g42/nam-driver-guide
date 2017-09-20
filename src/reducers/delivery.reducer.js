@@ -6,15 +6,15 @@ const initialState = {
     done: false,
     pickUp: {
       done: false,
-      latitude: 10.774414,
-      longitude: 106.686272,
-      address: '263 Nguyen Dinh Chieu, Phuong 12, Quan Phu Nhuan',
+      latitude: 10.774104,
+      longitude: 106.685982,
+      address: '63 Nguyen Dinh Chieu, Phuong 12, Quan Phu Nhuan',
     },
     dropOff: {
       done: false,
       latitude: 10.773461,
       longitude: 106.685365,
-      address: 'Công Ty Tnhh Mtv Tin Học Khánh Thảo',
+      address: '263 Công Ty Tnhh Mtv Tin Học Khánh Thảo',
     },
   },
   doneList: [
@@ -57,7 +57,7 @@ export default function auth(state = initialState, { type, payload }) {
     case t.ADD_DELIVERY:
       return {
         ...state,
-        currentStop: payload,
+        delivery: payload,
       }
     default:
       return state
