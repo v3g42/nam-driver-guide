@@ -83,6 +83,14 @@ class Dashboard extends React.Component {
 
     this.visitedDataSource = ds.cloneWithRows(visitedStop)
 
+    let currentStopLatLong = null
+    if (currentStop) {
+      const currentStopArr = currentStop.latlong.split(',')
+      currentStopLatLong = {
+        latitude: parseFloat(currentStopArr[0]),
+        longitude: parseFloat(currentStopArr[1]),
+      }
+    }
     return (
       <View style={styles.container}>
         <MapView
@@ -101,6 +109,13 @@ class Dashboard extends React.Component {
           {currentLocation &&
             <MapView.Marker coordinate={currentLocation}>
               <Icon name="md-bicycle" size={30} color="red" />
+            </MapView.Marker>}
+          {currentStop &&
+            <MapView.Marker coordinate={currentStopLatLong}>
+              <Image
+                style={styles.stopIcon}
+                source={require('../../assets/deliveryPlace.png')}
+              />
             </MapView.Marker>}
         </MapView>
 
