@@ -1,55 +1,63 @@
 import * as t from '../actionTypes'
+import * as c from '../constants'
 
 const initialState = {
-  currentStop: {
-    latlong: '10.772260, 106.684241',
-    address: 'Vuon Chuoi Market',
-  },
-  toCurrentStop: {
-    distance: null,
-    duration: null,
-    startAddress: null,
-    endAddress: null,
-  },
-  pendingStop: null,
-  visitedStop: [
-    {
-      latlong: '10.157189, 106.172099',
-      address: 'Thu Duc market',
+  delivery: {
+    done: false,
+    pickUp: {
+      done: false,
+      latitude: 10.774104,
+      longitude: 106.685982,
+      address: '63 Nguyen Dinh Chieu, Phuong 12, Quan Phu Nhuan',
     },
-    {
-      latlong: '10.257189, 106.272099',
-      address: '11 Hoang Dieu 2 Street',
+    dropOff: {
+      done: false,
+      latitude: 10.773461,
+      longitude: 106.685365,
+      address: '263 Công Ty Tnhh Mtv Tin Học Khánh Thảo',
     },
+  },
+  doneList: [
     {
-      latlong: '10.357189, 106.262099',
-      address: '12 Pham Van Dong Street',
+      done: false,
+      pickUp: {
+        done: false,
+        latitude: 10.773466,
+        longitude: 106.685371,
+        address: '263 Nguyen Van Chieu, Phuong 212, Quan Go Vap',
+      },
+      dropOff: {
+        done: false,
+        latitude: 10.768797,
+        longitude: 106.684882,
+        address: 'Nha Khoa Tai Mui Hong, Cong Quynh, Quan 12',
+      },
     },
   ],
 }
 
-export default function auth(state = initialState, action) {
-  switch (action.type) {
-    case t.LOAD_DIRECTION_SUCCESS:
-      const { distance, duration, startAddress, endAddress } = action.payload
+export default function auth(state = initialState, { type, payload }) {
+  switch (type) {
+    case t.REACHED_TO_CURRENT_DELIVERY:
+      const delivery =
+        payload === c.GOTO_PICKUP
+          ? { pickUp: { ...state.delivery.pickUp, done: true } }
+          : { done: true, dropOff: { ...state.delivery.dropOff, done: true } }
       return {
         ...state,
-        toCurrentStop: {
-          distance,
-          duration,
-          startAddress,
-          endAddress,
+        delivery: {
+          ...state.delivery,
+          ...delivery,
         },
-      }
-    case t.REACHED_TO_CURRENT_DELIVERY:
-      return {
-        visitedStop: [state.currentStop, ...state.visitedStop],
-        currentStop: null,
+        doneList:
+          payload === c.GOTO_DROPOFF
+            ? [state.delivery, ...state.doneList]
+            : state.doneList,
       }
     case t.ADD_DELIVERY:
       return {
         ...state,
-        currentStop: action.payload,
+        delivery: payload,
       }
     default:
       return state

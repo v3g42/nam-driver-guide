@@ -1,10 +1,10 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { View, Image, Text, ActivityIndicator, ListView } from 'react-native'
+import { View, Text, ActivityIndicator, ListView } from 'react-native'
 import Button from 'react-native-button'
 import MapView from 'react-native-maps'
 import * as Animatable from 'react-native-animatable'
-import Icon from 'react-native-vector-icons/Ionicons'
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 import { bindActionCreators } from 'redux'
 import actions from '../../actions'
 import styles from './dashboard.styles'
@@ -24,13 +24,7 @@ class Dashboard extends React.Component {
   }
 
   render() {
-    const {
-      currentLocation,
-      router,
-      currentStop,
-      visitedStop,
-      toCurrentStop,
-    } = this.props
+    const { currentLocation, doneList, delivery, router } = this.props
 
     if (!currentLocation)
       return (
@@ -39,32 +33,19 @@ class Dashboard extends React.Component {
         </View>
       )
 
-    this.visitedDataSource = ds.cloneWithRows(visitedStop)
+    this.visitedDataSource = ds.cloneWithRows(doneList)
 
-    let currentStopLatLong = null
-    if (currentStop) {
-      const currentStopArr = currentStop.latlong.split(',')
-      currentStopLatLong = {
-        latitude: parseFloat(currentStopArr[0]),
-        longitude: parseFloat(currentStopArr[1]),
-      }
-    }
     return (
       <View style={styles.container}>
-        {this.renderMapView(
-          currentLocation,
-          router,
-          currentStop,
-          currentStopLatLong
-        )}
+        {this.renderMapView(currentLocation, delivery, router)}
         {this.renderGoToCurrentLocationFloatButton()}
         {this.renderAnimatableVisitedList()}
-        {this.renderBottomInfoButton(currentStop, toCurrentStop)}
+        {this.renderStatusBar(delivery, router)}
       </View>
     )
   }
 
-  onPressGotoCurrentPositionButton = () => {
+  onPressGotoCurrentLocationButton = () => {
     this.setState({
       region: this.props.currentLocation,
     })
@@ -96,23 +77,31 @@ class Dashboard extends React.Component {
     } else this.hideVisitedDoneList()
   }
 
-  renderCompletedRow = rowData => {
+  renderCompletedRow = (rowData, dontShowDivider) => {
     return (
-      <View style={styles.visitedDoneRow}>
-        <Icon name="ios-checkmark-circle" size={60} color="green" />
-        <Text style={styles.visitedDoneRowText}>
-          {rowData.address}
-        </Text>
+      <View
+        style={[
+          styles.deliveryRow,
+          dontShowDivider ? { borderBottomWidth: 0, paddingVertical: 0 } : null,
+        ]}
+      >
+        <View style={styles.locationItem}>
+          <Icon name="basket-fill" size={16} color="red" />
+          <Text style={styles.locationItemText}>
+            Pickup: {rowData.pickUp.address}
+          </Text>
+        </View>
+        <View style={styles.locationItem}>
+          <Icon name="basket-unfill" size={16} color="green" />
+          <Text style={styles.locationItemText}>
+            Dropoff: {rowData.dropOff.address}
+          </Text>
+        </View>
       </View>
     )
   }
 
-  renderMapView = (
-    currentLocation,
-    router,
-    currentStop,
-    currentStopLatLong
-  ) => {
+  renderMapView = (currentLocation, delivery, router) => {
     return (
       <MapView
         onPress={this.hideVisitedDoneList}
@@ -120,24 +109,29 @@ class Dashboard extends React.Component {
         style={styles.mapView}
         initialRegion={currentLocation}
       >
-        {router &&
+        {currentLocation &&
+          <MapView.Marker coordinate={currentLocation}>
+            <Icon name="motorbike" size={30} color="red" />
+          </MapView.Marker>}
+        {delivery &&
+          delivery.pickUp &&
+          <MapView.Marker coordinate={delivery.pickUp}>
+            <Icon name="basket-fill" size={30} color="red" />
+            <Text>Pick up</Text>
+          </MapView.Marker>}
+        {delivery &&
+          delivery.dropOff &&
+          <MapView.Marker coordinate={delivery.dropOff}>
+            <Icon name="basket-unfill" size={30} color="green" />
+            <Text>Dropoff</Text>
+          </MapView.Marker>}
+
+        {router.coords &&
           <MapView.Polyline
-            coordinates={router}
+            coordinates={router.coords}
             strokeWidth={5}
             strokeColor="blue"
           />}
-
-        {currentLocation &&
-          <MapView.Marker coordinate={currentLocation}>
-            <Icon name="md-bicycle" size={30} color="red" />
-          </MapView.Marker>}
-        {currentStop &&
-          <MapView.Marker coordinate={currentStopLatLong}>
-            <Image
-              style={styles.stopIcon}
-              source={require('../../assets/deliveryPlace.png')}
-            />
-          </MapView.Marker>}
       </MapView>
     )
   }
@@ -145,11 +139,11 @@ class Dashboard extends React.Component {
   renderGoToCurrentLocationFloatButton = () => {
     return (
       <Button
-        onPress={this.onPressGotoCurrentPositionButton}
+        onPress={this.onPressGotoCurrentLocationButton}
         containerStyle={styles.currentPosButton}
       >
         <Icon
-          name="ios-locate"
+          name="crosshairs-gps"
           size={23}
           style={styles.currentPosButtonIcon}
           color="red"
@@ -158,23 +152,17 @@ class Dashboard extends React.Component {
     )
   }
 
-  renderBottomInfoButton = (currentStop, toCurrentStop) => {
+  renderStatusBar = delivery => {
     return (
       <Button
-        containerStyle={styles.nextStop}
+        containerStyle={styles.statusBar}
         onPress={this.toogleVisitedDoneList}
       >
-        <Image
-          style={styles.stopIcon}
-          source={require('../../assets/deliveryPlace.png')}
-        />
-        {currentStop &&
-          <Text style={styles.nextStopText}>
-            {`${currentStop.address}  ${toCurrentStop.endAddress
-              ? `-- ${toCurrentStop.endAddress}`
-              : ''}`}
+        {!delivery.done && this.renderCompletedRow(delivery, true)}
+        {delivery.done &&
+          <Text style={{ alignSelf: 'stretch', textAlign: 'center' }}>
+            No pending trips
           </Text>}
-        {!currentStop && <Text style={styles.nextStopText}>No delivery</Text>}
       </Button>
     )
   }
@@ -209,22 +197,23 @@ const mapStateToProps = state => {
   const router = state.location.router
   const currentStop = state.delivery.currentStop
   const toCurrentStop = state.delivery.toCurrentStop
-  const visitedStop = state.delivery.visitedStop
+  const doneList = state.delivery.doneList
+  const delivery = state.delivery.delivery
   return {
     currentLocation,
     router,
     currentStop,
-    visitedStop,
+    doneList,
     toCurrentStop,
+    delivery,
   }
 }
 
 Dashboard.propTypes = {
   currentLocation: React.PropTypes.object,
-  router: React.PropTypes.array,
-  visitedStop: React.PropTypes.array,
-  currentStop: React.PropTypes.object,
-  toCurrentStop: React.PropTypes.object,
+  doneList: React.PropTypes.array,
+  delivery: React.PropTypes.object,
+  router: React.PropTypes.object,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Dashboard)

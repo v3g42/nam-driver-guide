@@ -8,11 +8,11 @@ export const FCMNotificationListener = FCM.on(FCMEvent.Notification, notif => {
   if (notif._notificationType === 'will_present_notification') return // eslint-disable-line
   if (notif.opened_from_tray) {
     store.dispatch(
-      actions[t.FCM_NOTIFICATION_FROM_TRAY](JSON.parse(notif.nextLocation))
+      actions[t.FCM_NOTIFICATION_FROM_TRAY](JSON.parse(notif.delivery))
     )
   } else {
     store.dispatch(
-      actions[t.RECEIVED_FCM_NOTIFICATION](JSON.parse(notif.nextLocation))
+      actions[t.RECEIVED_FCM_NOTIFICATION](JSON.parse(notif.delivery))
     )
   }
 })
