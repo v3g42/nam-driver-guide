@@ -12,6 +12,13 @@ import './configs/location.config'
 class App extends Component {
   componentDidMount() {
     store.dispatch(actions[t.INIT_APP]())
+    // should load it from RN config
+    const enable_mock = true
+    // location mock
+    if (enable_mock)
+      setInterval(() => {
+        store.dispatch(actions[t.LOCATION_MOCK]())
+      }, 1000)
   }
   render() {
     return (
