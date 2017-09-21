@@ -16,11 +16,11 @@ pod install
 Android:
 npm run debug:alpha
 ```
-
 ```######
 iOS:
 react-native run-ios
 ```
+or just open the xcode project then build and run via xcode
 
 ### Demostration video
 
