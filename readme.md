@@ -1,6 +1,5 @@
 ### Step to get project running
 
-##
 
 * #### Step 1:  Get ready with React Native with [official document.](https://facebook.github.io/react-native/docs/getting-started.html)
 
@@ -24,7 +23,7 @@ react-native run-ios
 ```
 
 ### Demostration video
-##
+
 [![Video](https://i.ytimg.com/vi/TifTWuBEHok/hqdefault.jpg?sqp=-oaymwEXCPYBEIoBSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLCQJzfDXsJme58vX3JG9CjQaMeVvw)](https://www.youtube.com/watch?v=TifTWuBEHok)
 
 ### Mockserver
