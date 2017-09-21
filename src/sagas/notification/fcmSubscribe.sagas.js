@@ -30,7 +30,7 @@ export function* fcmSubscribeFlow() {
     const token = yield call(FCM.getFCMToken)
     if (token) {
       console.log('fcmToken', token)
-      Clipboard.setString(this.props.token)
+      Clipboard.setString(token)
       Toast.showLongTop('FCM token copied to clipboard')
     }
   } catch (error) {
