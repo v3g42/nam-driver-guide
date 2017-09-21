@@ -6,7 +6,7 @@
 * #### Step 2:  clone the repo, then navigate to root folder, then run `yarn install` or `npm install`
 
 * #### Step 3:  For IOS only: please navigate to /ios folder and run 
-```
+```######
 pod install
 ```
 
